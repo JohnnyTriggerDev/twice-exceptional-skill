@@ -66,9 +66,7 @@ Always-on through global instructions, not only when the model picks the skill (
 flowchart TD
     A[User message] --> P{"Bare preamble ending on a comma?"}
     P -- yes --> P1["Reply only: Yes, go on."]
-    P -- no --> V{"Spoken conversation?"}
-    V -- yes --> V1["Voice: full answer in the first sentence, 3-4 sentences, no symbols"]
-    V -- no --> B{"Deviation applies?"}
+    P -- no --> B{"Deviation applies?"}
     B -- "emotional topic / explain / destructive action / ..." --> C[Deviation handling]
     B -- no --> D["First line: answer or action"]
     D --> E{"Risk in the steps?"}
@@ -104,7 +102,7 @@ Across a session: "Now:" when the goal changes, "Back to:" when a parked thread 
 
 ## Rules at a glance
 
-27 rules in six groups, plus voice mode, closing, 8 deviations and a pre-send check. Map and tables: [docs/RULES.md](docs/RULES.md). Full text: [SKILL.md](skills/twice-exceptional-skill/SKILL.md).
+27 rules in six groups, plus closing, 8 deviations and a pre-send check. Map and tables: [docs/RULES.md](docs/RULES.md). Full text: [SKILL.md](skills/twice-exceptional-skill/SKILL.md).
 
 | Group | Rules |
 |---|---|
@@ -113,8 +111,8 @@ Across a session: "Now:" when the goal changes, "Back to:" when a parked thread 
 | C. Verification | 13: verify before sending, sources visible |
 | D. Input | 14-16: fragments, typos, complete dates |
 | E. Conversation | 17-23: decisive answers, status, starting and resuming, ready-to-use text, tone, no preambles, language |
-| F, G | Voice mode; closing with at most two blocks, "Done: …" or "Done, not run: …" when the task is complete |
-| H. Strengths | 24-27: protect hyperfocus, divergent mode, low-interest tasks, repetition |
+| F. Closing | Closing with at most two blocks, "Done: …" or "Done, not run: …" when the task is complete |
+| G. Strengths | 24-27: protect hyperfocus, divergent mode, low-interest tasks, repetition |
 | Deviations | Emotional topics, explain, destructive action, debug spiral, question loop, ambiguity, options, environment instructions |
 
 ## Limits
