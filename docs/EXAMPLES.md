@@ -4,6 +4,8 @@ Back to the [README](../README.md).
 
 Five of eight prompt pairs, picked for readability. Same model (`anthropic/claude-sonnet-5.5` via OpenRouter), one run per prompt, with and without `SKILL.md` as the system prompt. The prompts are invented. This is a demo, not a measurement: results vary run to run, and without the skill a reply is sometimes the more complete one.
 
+Note: the replies were generated with an earlier version of the skill, before rules 24-27 and the replay-test fixes. Some would differ today: for example ⚠️ now marks risks only, and a closing block is not repeated when unchanged.
+
 ## 1. Warning before the steps
 
 **Prompt:** `How do I remove an old Docker volume? I think a container might still be using it.`
@@ -175,6 +177,8 @@ Five of eight prompt pairs, picked for readability. Same model (`anthropic/claud
 ## 3. A fragment, read as a whole
 
 **Prompt:** `i want to add caching to the flask api, redis or in memory,`
+
+The message ends on a comma but the request is complete, so the whole is answered (rule 14). Only a bare preamble ("You know me,") gets "Yes, go on."
 
 <details>
 <summary>Without the skill (3,502 characters)</summary>
