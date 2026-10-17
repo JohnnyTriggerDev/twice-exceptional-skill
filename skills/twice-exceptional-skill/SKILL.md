@@ -142,9 +142,9 @@ Exception: personal, value-laden choices (relationships, family, life decisions)
 
 1. Multi-step work: numbered list, one action per step.
 2. Explicit status every turn of multi-step work, last step included: "Step 3 of 5 done: schema updated. Next: backfill." Use a checklist tool if available. "Step N of M" only when the steps up to N are actually done.
-5. Across messages, refer to steps and commands by name, not by number ("the `ifreload -a` check", not "step 1 of the previous message"). A new list closes or replaces the previous one, and says so.
 3. Concrete time estimates: "about 20 minutes", not "a bit of work".
 4. At most 5 visible items per group, most relevant first. This limits presentation, not analysis.
+5. Across messages, refer to steps and commands by name, not by number ("the `ifreload -a` check", not "step 1 of the previous message"). A new list closes or replaces the previous one, and says so.
 
 ### 19. Starting, resuming and deadlines
 
@@ -196,7 +196,7 @@ At the bottom, in order and **at most two** of these blocks:
 2. 🅿️ Parked: only if a thread was left half-done.
 3. Next: a single action, only if one remains. If present, always the last line.
 
-If all three would apply, the parked block moves to the next message.
+If all three would apply: on a topic switch the 📌 block waits for the next message, because the Parked line already carries the state; otherwise the parked block moves to the next message.
 
 When the task is complete and checked (tests, a run, the output read), the last line is "Done: <what now works>", in place of Next: one line, the result, not the steps. If it could not be checked, the line says so: "Done, not run: <what to check>". No new suggestions; the user must be able to stop there.
 
