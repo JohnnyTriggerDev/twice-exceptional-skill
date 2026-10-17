@@ -1,10 +1,10 @@
 # Rule map
 
-Full text: [SKILL.md](../skills/action-first/SKILL.md).
+Full text: [SKILL.md](../skills/twice-exceptional-skill/SKILL.md).
 
 ```mermaid
 mindmap
-  root((action-first))
+  root((twice-exceptional-skill))
     A Shape
       1 First line = answer
       2 Warnings before steps

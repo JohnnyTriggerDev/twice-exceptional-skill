@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 here="$(cd "$(dirname "$0")/.." && pwd)"
-src="$here/skills/action-first/SKILL.md"
+src="$here/skills/twice-exceptional-skill/SKILL.md"
 cl="$HOME/.claude"; oc="$HOME/.config/opencode"
-imp='@~/.claude/skills/action-first/SKILL.md'
-ins='~/.claude/skills/action-first/SKILL.md'
+imp='@~/.claude/skills/twice-exceptional-skill/SKILL.md'
+ins='~/.claude/skills/twice-exceptional-skill/SKILL.md'
 
-mkdir -p "$cl/skills/action-first" "$oc/skills/action-first"
-cp "$src" "$cl/skills/action-first/SKILL.md"
-cp "$src" "$oc/skills/action-first/SKILL.md"
+mkdir -p "$cl/skills/twice-exceptional-skill" "$oc/skills/twice-exceptional-skill"
+cp "$src" "$cl/skills/twice-exceptional-skill/SKILL.md"
+cp "$src" "$oc/skills/twice-exceptional-skill/SKILL.md"
 
 touch "$cl/CLAUDE.md"
 grep -qxF "$imp" "$cl/CLAUDE.md" || echo "$imp" >> "$cl/CLAUDE.md"
@@ -27,4 +27,4 @@ PY
 else
   printf '{\n  "$schema": "https://opencode.ai/config.json",\n  "instructions": ["%s"]\n}\n' "$ins" > "$oc/opencode.json"
 fi
-echo "action-first installed (Claude Code + opencode)."
+echo "twice-exceptional-skill installed (Claude Code + opencode)."

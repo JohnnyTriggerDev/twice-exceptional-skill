@@ -1,4 +1,4 @@
-# action-first
+# twice-exceptional-skill
 
 Response-style skill for coding agents (Claude Code, opencode): it changes the **form** of the output, not the technical level.
 
@@ -61,7 +61,7 @@ The script is idempotent. Details and manual steps: [docs/INSTALL.md](docs/INSTA
 
 | File | Content |
 |---|---|
-| [skills/action-first/SKILL.md](skills/action-first/SKILL.md) | The skill (source of truth) |
+| [skills/twice-exceptional-skill/SKILL.md](skills/twice-exceptional-skill/SKILL.md) | The skill (source of truth) |
 | [docs/RULES.md](docs/RULES.md) | Map of the 23 rules and the deviations |
 | [docs/INSTALL.md](docs/INSTALL.md) | Global install for Claude Code and opencode |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Why a skill plus automatic loading |

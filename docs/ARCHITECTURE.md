@@ -4,9 +4,9 @@ A skill alone is invoked only when the model judges it relevant. A style that mu
 
 ```mermaid
 flowchart LR
-    S[skills/action-first/SKILL.md]
-    S -->|copy| C1[~/.claude/skills/action-first]
-    S -->|copy| O1[~/.config/opencode/skills/action-first]
+    S[skills/twice-exceptional-skill/SKILL.md]
+    S -->|copy| C1[~/.claude/skills/twice-exceptional-skill]
+    S -->|copy| O1[~/.config/opencode/skills/twice-exceptional-skill]
     C1 -->|"@import"| C2[~/.claude/CLAUDE.md]
     C1 -->|instructions| O2[opencode.json]
     C2 --> CC[Claude Code: active every session]
