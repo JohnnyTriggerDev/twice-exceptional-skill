@@ -1,8 +1,12 @@
 <p align="center">
-  <img src="./assets/logo.png" alt="twice-exceptional-skill: a pink brain with two lightbulbs" width="140" />
+  <img src="./assets/logo.png" alt="twice-exceptional-skill: a rainbow infinity with a star and lightbulb (gifted) and a lightning bolt with open tabs (ADHD)" width="360" />
 </p>
-
-# twice-exceptional-skill
+<p align="center">
+  <strong>Answer first. One thread at a time. No filler.</strong>
+</p>
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat" alt="License: MIT"></a>
+</p>
 
 Response-style skill for coding agents (Claude Code, opencode): it changes the **form** of the output, not the technical level.
 
