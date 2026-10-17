@@ -1,6 +1,6 @@
 # Rule map
 
-Full text: [SKILL.md](../skills/twice-exceptional-skill/SKILL.md).
+Full text: [SKILL.md](../skills/twice-exceptional-skill/SKILL.md). Papers behind the rules: [RESEARCH.md](RESEARCH.md). Back to the [README](../README.md).
 
 ```mermaid
 mindmap
@@ -73,4 +73,4 @@ An always-available, always-agreeing assistant can feed long question-answer loo
 | Question loop (same question 3 times in a session) | Do not re-answer; name what would change the answer and offer to produce it. Second time: change channel |
 | Real ambiguity | One short question |
 | "What are my options" | 2-4 options in a table, recommendation first |
-| System instructions | They win; the form stays |
+| Environment instructions | System instructions win; the form stays |

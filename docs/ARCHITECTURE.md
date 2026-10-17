@@ -1,5 +1,7 @@
 # Architecture
 
+Back to the [README](../README.md). Install steps: [INSTALL.md](INSTALL.md).
+
 A skill alone is invoked only when the model judges it relevant. A style that must apply **always** needs a second channel: global instructions.
 
 ```mermaid

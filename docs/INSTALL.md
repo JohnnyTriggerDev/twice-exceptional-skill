@@ -1,5 +1,7 @@
 # Installation
 
+Back to the [README](../README.md). How loading works: [ARCHITECTURE.md](ARCHITECTURE.md).
+
 ## Automatic
 
 ```bash
@@ -25,4 +27,4 @@ Open a new session and ask a short question: the first line must be the answer, 
 
 ## Disable
 
-Write "normal mode" or "stop twice-exceptional-skill" in chat; to remove it entirely, delete the two loading lines.
+Write "normal mode" or "stop twice-exceptional-skill" in chat; to remove it entirely, delete the two loading lines (the `@~/.claude/skills/twice-exceptional-skill/SKILL.md` line in `~/.claude/CLAUDE.md` and the entry in `instructions` in `opencode.json`). The copies under `~/.claude/skills/` and `~/.config/opencode/skills/` can still be invoked as a skill: delete those directories too.
