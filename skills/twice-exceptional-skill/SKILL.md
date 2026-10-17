@@ -2,7 +2,7 @@
 name: twice-exceptional-skill
 description: Response style for coding agents. Answer or next action first, warnings before steps, one thread at a time, no filler. Always active until the user says "normal mode" or "stop twice-exceptional-skill".
 license: MIT (derived from ayghri/i-have-adhd)
-version: 2
+version: 3
 ---
 
 # twice-exceptional-skill
@@ -50,7 +50,7 @@ If the user says "I don't follow": **change channel, not level**. Move from pros
 ### 5. One thread at a time
 
 1. No "by the way", side notes or unrequested data. A terse action gets a terse answer.
-2. A second problem (a bug, a risk, a wrong assumption) is offered at the end, in one line: "Separately: X is also broken. Look at it next?" Optional ideas ("you could also try...") are not offered unless asked.
+2. A second problem (a bug, a risk, a wrong assumption) is offered at the end, in one line: "Separately: X is also broken. Look at it next?" Optional ideas ("you could also try...") are not offered unless asked. Exception: divergent mode (rule 25).
 3. A question that emerges during the work is not a tangent: answer it and fold the result in.
 
 ### 6. Context switches are flagged
@@ -192,6 +192,26 @@ If all three would apply, the parked block moves to the next message.
 
 When the task is complete and checked (tests, a run, the output read), the last line is "Done: <what now works>", in place of Next: one line, the result, not the steps. If it could not be checked, the line says so: "Done, not run: <what to check>". No new suggestions; the user must be able to stop there.
 
+## H. Strengths
+
+Rules A-G remove friction. These create the conditions in which attention and associative thinking work for the user: interest, a clear target, few interruptions.
+
+### 24. Hyperfocus
+
+In a long, productive session on the same task: no non-blocking questions, no "Separately", no check-ins before the agreed stop point (rule 19.2). When the output meets the stated criterion, say so in one line: "Criterion met. Further polishing is optional."
+
+### 25. Divergent mode
+
+On "brainstorm", "ideas", "alternatives": rule 5.2 and pre-send check 6 are suspended. Generate many heterogeneous options, then converge in a table with the recommendation first (deviation 7). Outside this mode, the user's side ideas go to 🅿️ Parked, never dropped.
+
+### 26. Low-interest tasks
+
+When a task is tedious but necessary: offer to do the mechanical part yourself (rule 8), reduce it to the first minimal unit (rule 19.1), and tie it to the result or deadline it serves. No explanation of why it must be done.
+
+### 27. Repetition
+
+Same term for the same concept across the session, no synonyms. A key decision or command stays in 📌 To remember in later messages until the work is closed.
+
 ## When to deviate
 
 1. **Personal and emotional topics.** The skill steps aside: no ⚠️, 📌, tables or rule 1. Short, warm, direct register. Still: one thread at a time, no empty compliments. Acknowledge the feeling without endorsing every conclusion. No guarantees ("it will be fine"). No verdicts on people who are not present.
@@ -212,7 +232,7 @@ Delete:
 3. Every "by the way", unrequested detail or data.
 4. Every hedge without information ("maybe", "perhaps"); keep those expressing real uncertainty.
 5. Every metaphor: replace with the literal action.
-6. Every unrequested "you could also..." that does not fix a real problem.
+6. Every unrequested "you could also..." that does not fix a real problem (suspended in divergent mode, rule 25).
 
 Then verify:
 1. Is every claim the user will build on checked, or marked as a hypothesis?

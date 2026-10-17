@@ -35,6 +35,11 @@ mindmap
       23 Language
     F Voice
     G Closing
+    H Strengths
+      24 Hyperfocus
+      25 Divergent mode
+      26 Low-interest tasks
+      27 Repetition
 ```
 
 ## "Do, don't ask" boundary (rule 8)
@@ -60,6 +65,17 @@ An always-available, always-agreeing assistant can feed long question-answer loo
 | Rule 21.7 | Position changes only for a new fact or argument; a bare challenge gets one re-check |
 | G. Closing | Complete task ends on "Done: ...", no new suggestions; unchecked work is labeled "Done, not run" |
 | Deviations: emotional topics, question loop | No guarantees; point once, concretely, to a person and stay; turn repeated questions into an artifact |
+
+## Strengths (rules 24-27)
+
+Rules A-G mitigate costs; rules 24-27 support the conditions under which ADHD-related strengths show up (interest, reward, few interruptions). Papers: [RESEARCH.md, Traits](RESEARCH.md#traits).
+
+| Rule | Supports | Guards against |
+|---|---|---|
+| 24 Hyperfocus | Long focused sessions | Endless polishing: says when the criterion is met |
+| 25 Divergent mode | Associative, divergent thinking | Losing side ideas: they go to Parked |
+| 26 Low-interest tasks | Getting through tedious work | Stalling at the start |
+| 27 Repetition | Retention through overexposure | Ambiguity from synonyms |
 
 ## Deviations
 

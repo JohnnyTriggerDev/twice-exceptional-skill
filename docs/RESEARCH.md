@@ -23,6 +23,20 @@ Papers behind the rules. Rule numbers refer to [SKILL.md](../skills/twice-except
 | [Parnin, Rugaber, "Resumption strategies for interrupted programming tasks", Software Quality Journal 19(1), 2011](https://doi.org/10.1007/s11219-010-9104-9) | Logs of 10,000 sessions from 86 programmers plus a survey of 414: only 10% of sessions resume editing within a minute of an interruption; developers rebuild context from notes and cues left in the environment | Rule 19.4 |
 | [Shah, de Souza Santos, Santos, Magalhaes, Gama, "Extending LLM-based support for software engineers with ADHD", arXiv 2610.00555, 2026 (preprint)](https://arxiv.org/abs/2610.00555) | Tether 2.0, an assistant with planning, coding, debugging and review modes, activity context and persistent memory. Expert survey (16, from a demo video) rated task decomposition highest and completion and sustained focus lowest; one engineer with ADHD used it for two weeks and valued the checklists and resuming after interruptions. Perceived usefulness only, no outcome measures | Rule 19.4, "Done, not run" closing (supporting only) |
 
+## Traits
+
+Papers on ADHD and high IQ that describe the traits the rules address. They describe people, not prompts.
+
+| Paper | Finding | Use |
+|---|---|---|
+| [Faraone et al., "The World Federation of ADHD International Consensus Statement: 208 Evidence-based Conclusions about the Disorder", Neurosci. Biobehav. Rev. 128, 2021](https://doi.org/10.1016/j.neubiorev.2021.01.022) | Statements limited to meta-analyses or registry studies with over 2,000 participants; untreated ADHD is linked to many adverse outcomes | Background for groups A-E |
+| [Antshel et al., "Executive functioning in high-IQ adults with ADHD", Psychol. Med. 40(11), 2010](https://pubmed.ncbi.nlm.nih.gov/20085666/) | High-IQ adults with ADHD (n=64) score below high-IQ controls (n=53) on executive tests, while staying in the average range; executive scores predict real-world functioning | Rules 18-19: support executive steps, not comprehension |
+| [Milioni et al., J. Atten. Disord., doi 10.1177/1087054714554933](https://doi.org/10.1177/1087054714554933) | Adults with ADHD and higher IQ show fewer executive deficits than those with standard IQ, which can hide the diagnosis | Rule 3: keep the level, change the form |
+| [Hupfeld, Abagis, Shah, "Living 'in the zone': hyperfocus in adult ADHD", ADHD Atten. Defic. Hyperact. Disord. 11(2), 2019](https://pubmed.ncbi.nlm.nih.gov/30267329/) | Pilot (251) and preregistered replication (372): more ADHD symptoms, more self-reported hyperfocus; a perseverative/perfectionist dimension appears in interviews | Rule 24 |
+| [Hoogman et al., "Creativity and ADHD: A review of behavioral studies, the effect of psychostimulants and neural underpinnings", Neurosci. Biobehav. Rev. 119, 2020](https://doi.org/10.1016/j.neubiorev.2020.09.029) | Review of 31 studies: more divergent thinking with high subclinical ADHD scores, not with the clinical diagnosis; no advantage in convergent thinking | Rule 25: open divergence, then converge |
+
+Limits: self-report (Hupfeld), effects conditional on severity (Hoogman). Rules 26 and 27 have no direct paper: they rest on the conditional, interest-driven pattern of these findings and on clinical observation in individual assessments.
+
 ## Limits of the evidence
 
 No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly: the papers show the risks the rules are meant to reduce, not that the rules reduce them. Five of the fourteen are arXiv preprints. Shah et al. 2026 rests on one user and expert opinion on a demo; it supports rule 19.4 and the "Done, not run" closing only together with Parnin and Rugaber and the logic of rule 13. Checked in full text: the five preprints, Carik et al. and Sharma et al. 2024. Checked on the abstract and the relevant sections only: Cheng, Lee et al. (arXiv version 2510.01395), Tang et al., Song et al., Lukoff et al., Parnin and Rugaber, and the two clinical papers.

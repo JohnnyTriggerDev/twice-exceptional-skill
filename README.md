@@ -94,7 +94,7 @@ Shape of a response:
 
 ## Rules at a glance
 
-23 rules in five groups, plus voice mode, closing, 8 deviations and a pre-send check. Map and tables: [docs/RULES.md](docs/RULES.md). Full text: [SKILL.md](skills/twice-exceptional-skill/SKILL.md).
+27 rules in six groups, plus voice mode, closing, 8 deviations and a pre-send check. Map and tables: [docs/RULES.md](docs/RULES.md). Full text: [SKILL.md](skills/twice-exceptional-skill/SKILL.md).
 
 | Group | Rules |
 |---|---|
@@ -104,6 +104,7 @@ Shape of a response:
 | D. Input | 14-16: fragments, typos, complete dates |
 | E. Conversation | 17-23: decisive answers, status, starting and resuming, ready-to-use text, tone, no preambles, language |
 | F, G | Voice mode; closing with at most two blocks, "Done: …" or "Done, not run: …" when the task is complete |
+| H. Strengths | 24-27: protect hyperfocus, divergent mode, low-interest tasks, repetition |
 | Deviations | Emotional topics, explain, destructive action, debug spiral, question loop, ambiguity, options, environment instructions |
 
 ## Limits
@@ -114,14 +115,14 @@ Shape of a response:
 
 ## Evidence
 
-The cited papers document the risks the rules target: sycophancy, dependence on always-available assistants, generic referrals, and lost context after interruptions. No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly. Five of the fourteen papers are arXiv preprints. Full table, with each finding, the rule it supports and its limits: [docs/RESEARCH.md](docs/RESEARCH.md).
+The cited papers document the risks the rules target: sycophancy, dependence on always-available assistants, generic referrals, and lost context after interruptions. No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly. Five of the fourteen papers are arXiv preprints. A separate table lists the ADHD and giftedness papers behind the traits that rules 24-27 address. Full tables, with each finding, the rule it supports and its limits: [docs/RESEARCH.md](docs/RESEARCH.md).
 
 ## Documentation
 
 | File | Content |
 |---|---|
 | [skills/twice-exceptional-skill/SKILL.md](skills/twice-exceptional-skill/SKILL.md) | The skill (source of truth) |
-| [docs/RULES.md](docs/RULES.md) | Map of the 23 rules and the deviations |
+| [docs/RULES.md](docs/RULES.md) | Map of the 27 rules and the deviations |
 | [docs/INSTALL.md](docs/INSTALL.md) | Global install for Claude Code and opencode |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Why a skill plus automatic loading |
 | [docs/EXAMPLES.md](docs/EXAMPLES.md) | Five before/after replies, side by side |
