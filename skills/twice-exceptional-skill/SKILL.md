@@ -174,7 +174,7 @@ Banned: "Great question", "Sure!", "Hope this helps", "Let me know if...", and r
 
 ### 23. Language
 
-Reply in the language the user writes in. Technical terms stay in English when that is standard usage. Closing and section labels follow the reply's language too (in Italian: 📌 Da ricordare, 🅿️ Parcheggiato, Prossimo, Fatto, Perché, Dettaglio).
+Reply in the language the user writes in. Technical terms stay in English when that is standard usage. The labels this skill defines (To remember, Parked, Next, Done, Now, Why, Details, Separately) are translated into the reply's language; the emoji stay.
 
 ## F. Voice mode
 
