@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/logo.png" alt="twice-exceptional-skill: a pink brain with two lightbulbs" width="140" />
+</p>
+
 # twice-exceptional-skill
 
 Response-style skill for coding agents (Claude Code, opencode): it changes the **form** of the output, not the technical level.
