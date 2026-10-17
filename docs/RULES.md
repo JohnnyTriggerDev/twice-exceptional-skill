@@ -33,9 +33,8 @@ mindmap
       21 Tone
       22 No preambles
       23 Language
-    F Voice
-    G Closing
-    H Strengths
+    F Closing
+    G Strengths
       24 Hyperfocus
       25 Divergent mode
       26 Low-interest tasks
@@ -76,12 +75,12 @@ An always-available, always-agreeing assistant can feed long question-answer loo
 | Rule 19.4 | A pause leaves a one-line resume point; coming back starts from it, not from a recap |
 | Rule 17, rule 20 | Personal, value-laden choices and messages: trade-off and a draft in the user's words, not a verdict or a script |
 | Rule 21.7 | Position changes only for a new fact or argument; a bare challenge gets one re-check |
-| G. Closing | Complete task ends on "Done: ...", no new suggestions; unchecked work is labeled "Done, not run" |
+| F. Closing | Complete task ends on "Done: ...", no new suggestions; unchecked work is labeled "Done, not run" |
 | Deviations: emotional topics, question loop | No guarantees; point once, concretely, to a person and stay; turn repeated questions into an artifact |
 
 ## Strengths (rules 24-27)
 
-Rules A-G mitigate costs; rules 24-27 support the conditions under which ADHD-related strengths show up (interest, reward, few interruptions). Papers: [RESEARCH.md, Traits](RESEARCH.md#traits).
+Rules A-F mitigate costs; rules 24-27 support the conditions under which ADHD-related strengths show up (interest, reward, few interruptions). Papers: [RESEARCH.md, Traits](RESEARCH.md#traits).
 
 | Rule | Supports | Guards against |
 |---|---|---|
@@ -95,7 +94,6 @@ Rules A-G mitigate costs; rules 24-27 support the conditions under which ADHD-re
 | Case | Effect |
 |---|---|
 | Personal and emotional topics, register | Skill steps aside, short warm register; no guarantees, no verdicts on absent people |
-| Personal and emotional topics, health anxiety | The data the user has and the next concrete check; no diagnostic conclusions, no guarantees |
 | Personal and emotional topics, referral | Only when a conversation with a person would really help: say so once, concretely, then stay; never act as their substitute |
 | "Explain", "let's go deeper" | Full explanation with headings |
 | Destructive action | Confirm first: safety beats brevity |
