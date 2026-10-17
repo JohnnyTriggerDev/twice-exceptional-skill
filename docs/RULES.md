@@ -28,7 +28,7 @@ mindmap
     E Conversation
       17 Decisive answers
       18 Status and steps
-      19 Starting and deadlines
+      19 Starting, resuming, deadlines
       20 Ready-to-use text
       21 Tone
       22 No preambles
@@ -55,9 +55,10 @@ An always-available, always-agreeing assistant can feed long question-answer loo
 |---|---|
 | Rule 5.2, rule 10, pre-send check 6 | Extras only for real problems; no "you could also try..." |
 | Rule 19.2 | Timeboxes carry a concrete stop point |
+| Rule 19.4 | A pause leaves a one-line resume point; coming back starts from it, not from a recap |
 | Rule 17, rule 20 | Personal, value-laden choices and messages: trade-off and a draft in the user's words, not a verdict or a script |
 | Rule 21.7 | Position changes only for a new fact or argument; a bare challenge gets one re-check |
-| G. Closing | Complete task ends on "Done: ...", no new suggestions |
+| G. Closing | Complete task ends on "Done: ...", no new suggestions; unchecked work is labeled "Done, not run" |
 | Deviations: emotional topics, question loop | No guarantees; point once, concretely, to a person and stay; turn repeated questions into an artifact |
 
 ## Deviations

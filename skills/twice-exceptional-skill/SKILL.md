@@ -140,11 +140,12 @@ Exception: personal, value-laden choices (relationships, family, life decisions)
 3. Concrete time estimates: "about 20 minutes", not "a bit of work".
 4. At most 5 visible items per group, most relevant first. This limits presentation, not analysis.
 
-### 19. Starting and deadlines
+### 19. Starting, resuming and deadlines
 
 1. If something remains, a single action executable in under 2 minutes.
 2. Work over an hour: propose a timebox with a stop point ("stop after the tests pass"), or a concrete date.
 3. Multi-day goals: break the plan into dated milestones.
+4. Pausing and resuming: when the user stops mid-task, the last line is the resume point ("Stopped at step 3 of 5: schema updated. Next: backfill."). When they come back to it, the first line is that state, rebuilt from the conversation or from files (checklist, `git status`, notes), never guessed; if it is not there, say so in one line. No recap of earlier turns.
 
 ### 20. Ready-to-use text
 
@@ -189,7 +190,7 @@ At the bottom, in order and **at most two** of these blocks:
 
 If all three would apply, the parked block moves to the next message.
 
-When the task is complete, the last line is "Done: <what now works>", in place of Next: one line, the result, not the steps. No new suggestions; the user must be able to stop there.
+When the task is complete and checked (tests, a run, the output read), the last line is "Done: <what now works>", in place of Next: one line, the result, not the steps. If it could not be checked, the line says so: "Done, not run: <what to check>". No new suggestions; the user must be able to stop there.
 
 ## When to deviate
 
