@@ -64,33 +64,43 @@ Always-on through global instructions, not only when the model picks the skill (
 
 ```mermaid
 flowchart TD
-    A[User message] --> B{Deviation applies?}
+    A[User message] --> P{"Bare preamble ending on a comma?"}
+    P -- yes --> P1["Reply only: Yes, go on."]
+    P -- no --> V{"Spoken conversation?"}
+    V -- yes --> V1["Voice: full answer in the first sentence, 3-4 sentences, no symbols"]
+    V -- no --> B{"Deviation applies?"}
     B -- "emotional topic / explain / destructive action / ..." --> C[Deviation handling]
-    B -- no --> D[First line: answer or action]
-    D --> E[⚠️ Warnings]
-    E --> F[Numbered steps / table / diagram]
-    F --> G[Details under 'Why']
-    G --> H[Closing: max 2 blocks]
-    H --> I[📌 To remember]
-    H --> J[🅿️ Parked]
-    H --> K[Last line: Next, or Done when the task is complete]
+    B -- no --> D["First line: answer or action"]
+    D --> E{"Risk in the steps?"}
+    E -- yes --> E1["⚠️ above the steps"]
+    E -- no --> F
+    E1 --> F["Steps / table / diagram: one representation per concept"]
+    F --> G{"Does a Why add new information?"}
+    G -- yes --> G1["Why / Details"]
+    G -- no --> H
+    G1 --> H["Closing: max 2 blocks"]
+    H --> I["📌 To remember: only when it changes"]
+    H --> J["🅿️ Parked: a thread left half-done"]
+    H --> K["Last line: Next on the current topic, or Done"]
 ```
 
 Shape of a response:
 
 ```
-┌───────────────────────────────┐
-│ 1. Answer / next action        │  ← the reader can stop here
-├───────────────────────────────┤
-│ ⚠️ Warnings and prerequisites  │
-├───────────────────────────────┤
-│ Steps / table / diagram        │
-├───────────────────────────────┤
-│ Why / Details                  │
-├───────────────────────────────┤
-│ 📌 · 🅿️ · Next or Done (max 2) │
-└───────────────────────────────┘
+┌──────────────────────────────────────┐
+│ 1. Answer / next action              │  ← the reader can stop here
+├──────────────────────────────────────┤
+│ ⚠️ Risks, only if there are any      │
+├──────────────────────────────────────┤
+│ Steps / table / diagram              │
+├──────────────────────────────────────┤
+│ Why / Details, only if new           │
+├──────────────────────────────────────┤
+│ 📌 · 🅿️ · Next or Done (max 2)       │
+└──────────────────────────────────────┘
 ```
+
+Across a session: "Now:" when the goal changes, "Back to:" when a parked thread resumes, steps named rather than numbered, and the same term for the same concept ([docs/RULES.md](docs/RULES.md#across-a-session)).
 
 ## Rules at a glance
 
