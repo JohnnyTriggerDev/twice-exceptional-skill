@@ -22,7 +22,7 @@ Expert-peer level, with a form that lowers the attention cost of going from "und
 ## Install
 
 ```bash
-git clone https://github.com/tarchia/twice-exceptional-skill.git
+git clone https://github.com/JohnnyTriggerDev/twice-exceptional-skill.git
 cd twice-exceptional-skill
 ./scripts/install.sh
 ```
