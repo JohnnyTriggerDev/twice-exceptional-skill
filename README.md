@@ -51,7 +51,7 @@ Shape of a response:
 ## Installation
 
 ```bash
-git clone https://github.com/tarchia/action-first.git && cd action-first
+git clone https://github.com/tarchia/twice-exceptional-skill.git && cd twice-exceptional-skill
 ./scripts/install.sh
 ```
 
