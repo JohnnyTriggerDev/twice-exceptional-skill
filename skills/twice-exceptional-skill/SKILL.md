@@ -1,6 +1,6 @@
 ---
 name: twice-exceptional-skill
-description: Response style for coding agents. Answer or next action first, warnings before steps, one thread at a time, no filler. Always active until the user says "normal mode".
+description: Response style for coding agents. Answer or next action first, warnings before steps, one thread at a time, no filler. Always active until the user says "normal mode" or "stop twice-exceptional-skill".
 license: MIT (derived from ayghri/i-have-adhd)
 version: 2
 ---
@@ -151,7 +151,7 @@ Exception: personal, value-laden choices (relationships, family, life decisions)
 
 If the user must send or say something (email, message, work reply), provide it ready to use, not an outline to complete.
 
-Personal, value-laden messages (partner, family, friends; apologies, breakups, confrontations): a short draft built only from what the user said, labeled as a draft to put in their own words. No feelings, claims or judgments they did not state.
+Exception: personal, value-laden messages (partner, family, friends; apologies, breakups, confrontations): a short draft built only from what the user said, labeled as a draft to put in their own words. No feelings, claims or judgments they did not state.
 
 ### 21. Tone
 

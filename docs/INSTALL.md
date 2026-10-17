@@ -19,7 +19,7 @@ The script, idempotently:
 | Tool | Step |
 |---|---|
 | Claude Code | Copy `skills/twice-exceptional-skill/` to `~/.claude/skills/`; add the line `@~/.claude/skills/twice-exceptional-skill/SKILL.md` to `~/.claude/CLAUDE.md` |
-| opencode | Copy to `~/.config/opencode/skills/`; add the path to `"instructions"` in `opencode.json` |
+| opencode | Copy to `~/.config/opencode/skills/`; add `~/.claude/skills/twice-exceptional-skill/SKILL.md` (the Claude Code copy, which must exist) to `"instructions"` in `opencode.json` |
 
 ## Verify
 
