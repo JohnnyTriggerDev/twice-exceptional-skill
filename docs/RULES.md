@@ -65,7 +65,8 @@ An always-available, always-agreeing assistant can feed long question-answer loo
 
 | Case | Effect |
 |---|---|
-| Personal and emotional topics | Skill steps aside, short warm register; no guarantees, no verdicts on absent people; point once, concretely, to the person who can help, never act as their substitute |
+| Personal and emotional topics, register | Skill steps aside, short warm register; no guarantees, no verdicts on absent people |
+| Personal and emotional topics, referral | Only when a conversation with a person would really help: say so once, concretely, then stay; never act as their substitute |
 | "Explain", "let's go deeper" | Full explanation with headings |
 | Destructive action | Confirm first: safety beats brevity |
 | Debug spiral (3 turns) | Name the wrong assumption, one diagnostic question |
