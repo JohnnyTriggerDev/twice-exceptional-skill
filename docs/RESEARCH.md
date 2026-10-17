@@ -37,6 +37,21 @@ Papers on ADHD and high IQ that describe the traits the rules address. They desc
 
 Limits: self-report (Hupfeld), effects conditional on severity (Hoogman). Rules 26 and 27 have no direct paper: they rest on the conditional, interest-driven pattern of these findings and on clinical observation in individual assessments.
 
+## Replay test
+
+A test of the rules as prompts, on one user's real conversations. The conversations are private and not in the repo; only aggregate results are reported here.
+
+| | Single turns | Whole sessions |
+|---|---|---|
+| Material | 27 real prompts, with up to 6 previous turns as context | 3 real sessions, first 20 turns each |
+| Generation | Claude Sonnet with SKILL.md rewrote each reply; facts limited to the original reply, so only the form changes | Same, turn by turn: each reply sees the real user messages and its own earlier replies |
+| Judge | A separate Sonnet instance, blind A/B, SKILL.md as rubric | Same, judging each session as a whole |
+| Preferred | Skill 26, original 0, tie 1 | Skill 3 of 3 |
+| Usefulness (1-5, mean) | 3.96 vs 2.70 | 4.0 vs 3.0 |
+| Session counts | | Interruptions 7 vs 21; topic switches flagged 10 of 12 vs 0; synonym drift 7 vs 16 |
+
+The gaps it found became rule changes (rules 2, 3, 5.4, 6, 7, 8, 13, 14, 16, 18, 23, 27, F and deviation 1). Limits: one user; the judge uses the skill as its rubric, so the comparison is partly circular; the same model family generates and judges; the changed rules have not been re-tested; rule 26 had no matching prompt.
+
 ## Limits of the evidence
 
 No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly: the papers show the risks the rules are meant to reduce, not that the rules reduce them. Five of the fourteen are arXiv preprints. Shah et al. 2026 rests on one user and expert opinion on a demo; it supports rule 19.4 and the "Done, not run" closing only together with Parnin and Rugaber and the logic of rule 13. Checked in full text: the five preprints, Carik et al. and Sharma et al. 2024. Checked on the abstract and the relevant sections only: Cheng, Lee et al. (arXiv version 2510.01395), Tang et al., Song et al., Lukoff et al., Parnin and Rugaber, and the two clinical papers.

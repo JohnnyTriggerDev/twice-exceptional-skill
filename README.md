@@ -19,7 +19,7 @@ Expert-peer level, with a form that lowers the attention cost of going from "und
 | Before | After |
 |---|---|
 | Context, preamble, "there are several aspects to consider…" | First line = command, path or decision |
-| Warning at the bottom | ⚠️ above the steps |
+| Warning at the bottom | ⚠️ above the steps, and only for real risks; guesses are labeled "Hypothesis:" |
 | Long prose | Tables, diagrams, hierarchies |
 | Several topics mixed | One thread at a time, switches flagged, 🅿️ parking |
 | "Hope this helps!" | No preambles or courtesy closings |
@@ -109,13 +109,13 @@ Shape of a response:
 
 ## Limits
 
-- Prompt-only: it shapes how the agent writes, and the model can still drift from it. Nothing in the repo measures compliance.
+- Prompt-only: it shapes how the agent writes, and the model can still drift from it. There is no automated compliance check in the repo; one private replay test is summarized in [docs/RESEARCH.md](docs/RESEARCH.md#replay-test).
 - System and environment instructions win over the skill (deviation 8); the form stays.
 - Not a mental-health tool: on personal and emotional topics the skill steps aside, and it never presents itself as a substitute for a person.
 
 ## Evidence
 
-The cited papers document the risks the rules target: sycophancy, dependence on always-available assistants, generic referrals, and lost context after interruptions. No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly. Five of the fourteen papers are arXiv preprints. A separate table lists the ADHD and giftedness papers behind the traits that rules 24-27 address. Full tables, with each finding, the rule it supports and its limits: [docs/RESEARCH.md](docs/RESEARCH.md).
+The cited papers document the risks the rules target: sycophancy, dependence on always-available assistants, generic referrals, and lost context after interruptions. No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly. Five of the fourteen papers are arXiv preprints. A separate table lists the ADHD and giftedness papers behind the traits that rules 24-27 address. A replay test on one user's real conversations (27 prompts, 3 sessions) preferred the skill in 29 of 30 blind comparisons, with one tie; the judge used the skill as its rubric, so read its limits first. Full tables, with each finding, the rule it supports and its limits: [docs/RESEARCH.md](docs/RESEARCH.md).
 
 ## Documentation
 
@@ -137,7 +137,7 @@ The cited papers document the risks the rules target: sycophancy, dependence on 
 | [Claude Code memory and `@import`](https://code.claude.com/docs/en/memory) | Automatic loading via `~/.claude/CLAUDE.md` |
 | [opencode rules and `instructions`](https://opencode.ai/docs/rules/) | Automatic loading via `opencode.json` |
 
-⚠️ The two documentation links were not re-verified when this README was written; check them if the mechanisms change.
+Both documentation links checked on 17 October 2026: `@path` imports in `~/.claude/CLAUDE.md` and the `instructions` array in `opencode.json` work as described here.
 
 ## License
 
