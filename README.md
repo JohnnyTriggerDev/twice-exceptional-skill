@@ -2,7 +2,7 @@
   <img src="./assets/logo.png" alt="twice-exceptional-skill: a rainbow infinity with a star and lightbulb (gifted) and a lightning bolt with open tabs (ADHD)" width="360" />
 </p>
 <p align="center">
-  <strong>Answer first. One thread at a time. No filler.</strong>
+  <strong>Full expert depth, ADHD-friendly form. Answer first, no filler.</strong>
 </p>
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green?style=flat" alt="License: MIT"></a>
