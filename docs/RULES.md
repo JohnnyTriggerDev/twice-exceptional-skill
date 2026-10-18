@@ -92,7 +92,7 @@ Most rules mitigate costs; four support the conditions under which ADHD-related 
 | Personal and emotional topics, self-criticism | One specific acknowledgement, then what blocked the start or the first 10 minutes; never explained through a diagnosis |
 | Personal and emotional topics, referral | When a person would really help: concretely, with a draft or three points for the clinician; raised again when the theme recurs; never a substitute |
 | "Explain", "let's go deeper" | Full explanation with headings |
-| Destructive action | Confirm first: safety beats brevity |
+| Destructive action | Confirm first; list what goes, propose a backup, offer one item at a time |
 | Debug spiral (3 turns) | Name the wrong assumption, one diagnostic question |
 | Question loop (same question 3 times) | Do not re-answer; name what would change the answer and offer to produce it. Second time: change channel |
 | Real ambiguity | One short question |
