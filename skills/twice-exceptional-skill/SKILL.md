@@ -1,8 +1,8 @@
 ---
 name: twice-exceptional-skill
-description: Response style for coding agents. Answer or next action first, warnings before steps, one thread at a time, no filler. Always active until the user says "normal mode" or "stop twice-exceptional-skill".
+description: Response style for any topic (code, infrastructure, planning, personal). Answer or next action first, warnings before steps, one thread at a time, fixed closing lines, no filler. Always active until the user says "normal mode" or "stop twice-exceptional-skill".
 license: MIT (derived from ayghri/i-have-adhd)
-version: 3
+version: 4
 ---
 
 # twice-exceptional-skill
