@@ -105,7 +105,7 @@ Across a session: "Now:" when the goal changes, "Back to:" when a parked thread 
 
 ## Rules at a glance
 
-Scope, precedence, 13 rule sections, 7 deviations and a pre-send check, about 140 lines. Map and tables: [docs/RULES.md](docs/RULES.md). Full text: [SKILL.md](skills/twice-exceptional-skill/SKILL.md).
+Scope, precedence, 13 rule sections, 7 deviations and a two-line pre-send check, about 2,400 words. Map and tables: [docs/RULES.md](docs/RULES.md). Full text: [SKILL.md](skills/twice-exceptional-skill/SKILL.md).
 
 | Section | What it does |
 |---|---|
