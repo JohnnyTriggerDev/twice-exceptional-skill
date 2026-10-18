@@ -46,7 +46,8 @@ mindmap
 | Scope | Behavior |
 |---|---|
 | Research, analysis, drafts, reading | Do |
-| User's files | Work on a copy; modifying the original: ask |
+| Files under version control, or ones the user asked you to change | Edit in place |
+| Other user files | Work on a copy; modifying the original: ask |
 | Infrastructure and shared systems | Read and propose; confirm before changing state |
 | Physical devices | Plans free; never heat or motion without an explicit yes |
 | Calendar, messages to third parties | Propose; execute after a yes |
