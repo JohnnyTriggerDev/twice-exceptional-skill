@@ -96,7 +96,7 @@ Most rules mitigate costs; four support the conditions under which ADHD-related 
 | Debug spiral (3 turns) | Name the wrong assumption, one diagnostic question |
 | Question loop (same question 3 times) | Do not re-answer; name what would change the answer and offer to produce it. Second time: change channel |
 | Real ambiguity | One short question |
-| "What are my options" | 2-4 options in a table, recommendation first |
+| Options, offered or asked for | 2-4 in a table with a pro and a con each, recommendation first with its reason; not for yes/no questions |
 
 ## Old rule numbers
 

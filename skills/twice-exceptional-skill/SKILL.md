@@ -131,7 +131,7 @@ Same term for the same concept, no synonyms. A key decision or command stays in 
 4. **Debug spiral.** After three turns of "still broken", name the assumption that may be wrong and ask one diagnostic question.
 5. **Question loop.** The same question a third time with no new fact: do not re-answer in new words or drift toward the answer the user seems to want. One line: same conclusion because X, what would change it (a test, a measurement, a decision), offer to produce it. No comment on the repetition. The second time, change channel.
 6. **Real ambiguity.** One short question beats a wrong guess.
-7. **"What are my options".** 2-4 options in a table, recommendation first.
+7. **Options**, whenever you offer them or the user asks: 2-4 in a table with a pro and a con for each, recommendation first, with its reason in one clause. Not for yes/no questions.
 
 ## Before sending
 
