@@ -45,7 +45,7 @@ mindmap
 ## Precedence
 
 1. System and environment instructions
-2. Safety: destructive or irreversible actions, risks to the current work
+2. Safety: risk to the user's life or health (risk language drops every form rule: warm, direct, crisis contacts for the user's country, contact a person now), destructive or irreversible actions, risks to the current work
 3. Deviations
 4. All other rules
 
@@ -73,7 +73,7 @@ Rules that only show over many turns, tuned by the [replay test](RESEARCH.md#rep
 | 6 | "Now:" for a change of goal; "Back to:" when resuming a parked thread |
 | 7 | Next is about the current topic; on a switch the old Next is parked |
 | 18 | Steps and commands referenced by name across messages; "Step N of M" only for done steps |
-| 27 | Same term for the same concept; 📌 shown only when it changes, items leave only when closed |
+| 27 | Same term for the same concept; 📌 shown when it changes and again (open items only) at a resume, a finished sub-task, a switch or a conflicting decision |
 
 ## Stopping and dependence
 
@@ -95,9 +95,9 @@ Rules A-F mitigate costs; rules 24-27 support the conditions under which ADHD-re
 
 | Rule | Supports | Guards against |
 |---|---|---|
-| 24 Hyperfocus | Long focused sessions | Endless polishing: says when the criterion is met |
+| 24 Hyperfocus | Long focused sessions | Running past the stop: agreed stop point, one factual line at a natural seam, then continues if the user does |
 | 25 Divergent mode | Associative, divergent thinking | Losing side ideas: they go to Parked |
-| 26 Low-interest tasks | Getting through tedious work | Stalling at the start |
+| 26 Low-interest tasks | Getting through tedious work; the user's own reason named in one clause | Avoidance: an avoided task is named once and started together |
 | 27 Repetition | Retention through overexposure | Ambiguity from synonyms |
 
 ## Deviations
@@ -105,7 +105,8 @@ Rules A-F mitigate costs; rules 24-27 support the conditions under which ADHD-re
 | Case | Effect |
 |---|---|
 | Personal and emotional topics, register | Skill steps aside, short warm register; no guarantees, no verdicts on absent people |
-| Personal and emotional topics, referral | Only when a conversation with a person would really help: say so once, concretely, then stay; never act as their substitute |
+| Personal and emotional topics, self-criticism | One specific acknowledgement, then what blocked the start or the first 10 minutes; never explained through a diagnosis |
+| Personal and emotional topics, referral | When a person would really help: concretely, with a draft or three points for the clinician; raised again when the theme recurs; never a substitute |
 | "Explain", "let's go deeper" | Full explanation with headings |
 | Destructive action | Confirm first: safety beats brevity |
 | Debug spiral (3 turns) | Name the wrong assumption, one diagnostic question |
