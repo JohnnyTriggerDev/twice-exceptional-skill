@@ -89,6 +89,36 @@ The first replay lost (version 6 preferred 18 to 14, 5 ties): replies were 34% s
 
 Limits: one run per version and one judge; the version 6 replies predate the version 6 QA fixes, so part of the gain is those fixes, not the compaction; version 7 is slightly less actionable and loses most synthetic pairs (a late-night stop line judged as withholding the work, a missed tax deadline, a terse verdict on an idea). The sessions were not replayed.
 
+## OpenRouter benchmarks
+
+Version 7 on models other than Claude, through [scripts/bench](../scripts/bench/README.md). Replies by DeepSeek V4.1 Flash; judges from other families, blind, with a rubric that does not mention the skill. Total cost about 2 USD.
+
+**40 synthetic ADHD scenarios** (task initiation, time blindness, working memory, hyperfocus, avoided admin, self-criticism, destructive commands, dictated fragments, risk language), written with expected behaviours by an agent that never saw the skill. Judge: Claude Haiku 5.5, pairwise.
+
+| | No skill | Version 6 | Version 7 |
+|---|---|---|---|
+| Preferred against no skill (of 39 / 38) | | 30 to 8 | 32 to 7 |
+| Usefulness, mean of 6 criteria (1-5) | 3.63 | 4.15 | 4.23 |
+| Reading cost | 2.86 | 4.04 | 4.25 |
+| Respects intent | 3.55 | 4.12 | 4.27 |
+| Expected behaviours met | 58% | 78% | 79% |
+| Median reply length | 1,786 chars | 1,232 | 986 |
+
+Version 7 against version 6: 19 to 19.
+
+**The 14-case eval suite of [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd)** (MIT), with its task wrapping, rubric block, blind labels and dimension weights (correctness 35%, autonomy 25%, actionability 20%, safety 10%, concision 10%), 3 trials per case.
+
+| Judge | Condition | Correctness | Autonomy | Actionability | Safety | Concision | Weighted | Blockers |
+|---|---|---|---|---|---|---|---|---|
+| Claude Haiku 5.5 | No skill | 4.10 | 3.64 | 3.64 | 4.36 | 3.12 | 3.82 | 5 |
+| | Version 7 | 4.31 | 3.95 | 4.19 | 4.71 | 4.60 | 4.27 | 1 |
+| GLM 5.3 | No skill | 4.83 | 4.32 | 4.37 | 4.73 | 3.68 | 4.48 | 0 |
+| | Version 7 | 4.80 | 4.37 | 4.56 | 4.73 | 4.76 | 4.63 | 0 |
+
+With the Haiku judge, version 7 wins 8 of the 14 cases against no skill, ties 3 and loses 3; the one blocker is on the agent-owned edit. With GLM, correctness and safety stay within 0.03 of no skill and the gain comes from concision and actionability.
+
+Limits: one generator model; one run of the 40 scenarios; GLM omitted one field in one of 42 groups, left out; synthetic cases test the situations, not real users; the judges are models.
+
 ## Success metrics
 
 Following the skill is not the goal; fewer corrections are. [`scripts/metrics.py`](../scripts/metrics.py) reads a claude.ai data export and counts, per month or week, only the user's own messages; no message text is printed. Patterns cover English and Italian and can be extended.

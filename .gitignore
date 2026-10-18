@@ -1,0 +1,6 @@
+.env
+scripts/bench/*.jsonl
+!scripts/bench/ihad_cases.jsonl
+scripts/bench/*_log.txt
+scripts/bench/skill_ihad.md
+__pycache__/
