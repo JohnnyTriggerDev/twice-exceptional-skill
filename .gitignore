@@ -1,0 +1,4 @@
+__pycache__/
+*.py[cod]
+# Raw eval runs: large and regenerable; the summary goes in evals/RESULTS.md
+evals/results/
