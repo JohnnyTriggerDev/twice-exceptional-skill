@@ -4,6 +4,7 @@ here="$(cd "$(dirname "$0")/.." && pwd)"
 src="$here/skills/twice-exceptional-skill/SKILL.md"
 cl="$HOME/.claude"; oc="$HOME/.config/opencode"
 imp='@~/.claude/skills/twice-exceptional-skill/SKILL.md'
+# shellcheck disable=SC2088  # literal ~, expanded by opencode
 ins='~/.claude/skills/twice-exceptional-skill/SKILL.md'
 
 mkdir -p "$cl/skills/twice-exceptional-skill" "$oc/skills/twice-exceptional-skill"
@@ -25,6 +26,7 @@ if f not in d["instructions"]:
 json.dump(d, open(p, "w"), indent=2, ensure_ascii=False)
 PY
 else
+  # shellcheck disable=SC2016  # literal $schema key
   printf '{\n  "$schema": "https://opencode.ai/config.json",\n  "instructions": ["%s"]\n}\n' "$ins" > "$oc/opencode.json"
 fi
 echo "twice-exceptional-skill installed (Claude Code + opencode)."
