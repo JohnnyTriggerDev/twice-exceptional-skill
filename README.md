@@ -121,13 +121,15 @@ Scope, precedence, 13 rule sections, 7 deviations and a pre-send check, about 14
 
 ## Limits
 
-- Prompt-only: it shapes how the agent writes, and the model can still drift from it. CI checks the docs, the diagrams and both install scripts, not the model's compliance; one private replay test is summarized in [docs/RESEARCH.md](docs/RESEARCH.md#replay-test).
+- Prompt-only: it shapes how the agent writes, and the model can still drift from it. CI checks the docs, the diagrams, both install scripts and the eval harness, not the model's compliance; the reproducible eval is in [evals/](evals/README.md) and one private replay test is summarized in [docs/RESEARCH.md](docs/RESEARCH.md#replay-test).
 - System and environment instructions win over the skill (Precedence 1); the form stays.
 - Not a mental-health tool: on personal and emotional topics the skill steps aside, and it never presents itself as a substitute for a person.
 
 ## Evidence
 
 The cited papers document the risks the rules target: sycophancy, dependence on always-available assistants, generic referrals, and lost context after interruptions. No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly. Five of the fourteen papers are arXiv preprints. A separate table lists the ADHD and giftedness papers behind the traits that the strengths rules address. A replay test on one user's real conversations (27 prompts, 3 sessions) preferred the skill in 29 of 30 blind comparisons, with one tie; the judge used the skill as its rubric, so read its limits first. Full tables, with each finding, the rule it supports and its limits: [docs/RESEARCH.md](docs/RESEARCH.md).
+
+A reproducible blind eval ([evals/](evals/README.md)) compares no skill, this skill and i-have-adhd on 16 cases, 3 trials, `claude-opus-5-5` as generator and judge. Weighted usefulness: 4.13, **4.67** and 4.10; responses 31% shorter than with no skill. The cases were written from this skill's design, so the comparison with i-have-adhd favours this skill; read [the limits](evals/RESULTS.md#read-before-citing) before citing.
 
 ## Documentation
 
@@ -139,12 +141,14 @@ The cited papers document the risks the rules target: sycophancy, dependence on 
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Why a skill plus automatic loading |
 | [docs/EXAMPLES.md](docs/EXAMPLES.md) | Five before/after replies, side by side |
 | [docs/RESEARCH.md](docs/RESEARCH.md) | Papers, findings, use and limits |
+| [evals/README.md](evals/README.md) | Reproducible eval harness: cases, rubric, how to run |
+| [evals/RESULTS.md](evals/RESULTS.md) | Latest eval numbers and their limits |
 
 ## Credits and tooling
 
 | Source | Use |
 |---|---|
-| [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd), Ayoub Ghriss, MIT | Original work this skill derives from: core idea and rule-based structure |
+| [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd), Ayoub Ghriss, MIT | Original work this skill derives from: core idea and rule-based structure; eval harness in `scripts/` and `evals/` |
 | [Kacper Rutkiewicz, AI Made Simple](https://youtu.be/NEl8kPWZP_Y) | Video breakdown of an earlier version of i-have-adhd, cited by the original README |
 | [Claude Code memory and `@import`](https://code.claude.com/docs/en/memory) | Automatic loading via `~/.claude/CLAUDE.md` |
 | [opencode rules and `instructions`](https://opencode.ai/docs/rules/) | Automatic loading via `opencode.json` |
