@@ -132,7 +132,7 @@ The cited papers document the risks the rules target: sycophancy, dependence on 
 | File | Content |
 |---|---|
 | [skills/twice-exceptional-skill/SKILL.md](skills/twice-exceptional-skill/SKILL.md) | The skill (source of truth) |
-| [docs/RULES.md](docs/RULES.md) | Map of the 27 rules and the deviations |
+| [docs/RULES.md](docs/RULES.md) | Map of the rule sections, the deviations and the old rule numbers |
 | [docs/INSTALL.md](docs/INSTALL.md) | Global install for Claude Code and opencode |
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Why a skill plus automatic loading |
 | [docs/EXAMPLES.md](docs/EXAMPLES.md) | Five before/after replies, side by side |
