@@ -52,6 +52,19 @@ A test of the rules as prompts, on one user's real conversations. The conversati
 
 The gaps it found became rule changes (rules 2, 3, 5.4, 6, 7, 8, 13, 14, 16, 18, 23 and 27; a voice-mode section and a health-anxiety line it also produced were later removed). Limits: one user; the judge uses the skill as its rubric, so the comparison is partly circular; the same model family generates and judges; the changed rules have not been re-tested; the tedious-task rule had no matching prompt. Rule numbers in this section and the next refer to version 5 (map in RULES.md).
 
+## Regression and synthetic QA (version 6)
+
+Same 27 prompts and 3 sessions as the replay test, regenerated with version 6 and judged blind against version 3 by Claude Opus, with a usefulness rubric that does not include the skill (actionable, correct, level, reading cost, safe, intent).
+
+| | Version 6 | Version 3 |
+|---|---|---|
+| Single turns preferred (27) | 16 | 7 (4 ties) |
+| Usefulness, mean of 6 criteria (1-5) | 4.54 | 4.23 |
+| Reading cost (1-5) | 4.41 | 3.74 |
+| Sessions preferred (3) | 2 | 1 |
+
+Ten synthetic cases (risk language, late-night polishing, an avoided task, self-attack, a destructive command, fragments, an ambiguous typo, repeated pushback, a mid-task "what if", a work decision) were written by an agent that never saw the skill, each with expected behaviour; 30 of 47 expectations met, 14 partly, 3 not. The gaps became changes: unchecked diagnoses marked as hypotheses, no option table for text drafts, labels written in the user's language, the stop line first for late new work, a check-in on harsh self-attack, a fork for a mid-task "what if", and backup and item-by-item steps for destructive actions. Limits: one user; model judges; the synthetic cases test whether a rule is followed, not whether it helps.
+
 ## Model reviews
 
 Two reviews by language-model agents with no prior context. They are not human experts and not evidence; they are listed so the source of each change is visible.
