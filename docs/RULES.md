@@ -83,6 +83,7 @@ Most rules mitigate costs; four support the conditions under which ADHD-related 
 | One thread: divergent mode | Associative, divergent thinking | Losing side ideas: they are parked |
 | Progress: tedious tasks | Getting through tedious work; the user's own reason in one clause | Avoidance: an avoided task is named once and started together |
 | Memory in the session | Retention through repetition | Ambiguity from synonyms; decisions lost many screens up |
+| Structure: map of the branches; Tone: pruning | Seeing the whole tree and the shortcut | Over-engineering: the user prunes before the detail, and a prune is followed without defence |
 
 ## Deviations
 
@@ -92,11 +93,11 @@ Most rules mitigate costs; four support the conditions under which ADHD-related 
 | Personal and emotional topics, self-criticism | One specific acknowledgement, then what blocked the start or the first 10 minutes; never explained through a diagnosis |
 | Personal and emotional topics, referral | When a person would really help: concretely, with a draft or three points for the clinician; raised again when the theme recurs; never a substitute |
 | "Explain", "let's go deeper" | Full explanation with headings |
-| Destructive action | Confirm first: safety beats brevity |
+| Destructive action | Confirm first; list what goes, propose a backup, offer one item at a time |
 | Debug spiral (3 turns) | Name the wrong assumption, one diagnostic question |
 | Question loop (same question 3 times) | Do not re-answer; name what would change the answer and offer to produce it. Second time: change channel |
 | Real ambiguity | One short question |
-| "What are my options" | 2-4 options in a table, recommendation first |
+| Options, offered or asked for | 2-4 in a table with a pro and a con each, recommendation first with its reason; not for yes/no questions |
 
 ## Old rule numbers
 

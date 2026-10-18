@@ -115,7 +115,7 @@ Scope, precedence, 13 rule sections, 7 deviations and a pre-send check, about 14
 | Input, Progress | Fragments, typos, dates; status, resume points, stop points in long sessions, tedious and avoided tasks |
 | Ready-to-use text, Tone, Memory | Texts ready to send; direct, not cold; same terms, 📌 To remember |
 | Closing | Last line Next, Done or "Done, not run"; at most one 🅿️ or 📌 block above it |
-| Deviations | Emotional topics, explain, destructive action, debug spiral, question loop, ambiguity, options |
+| Deviations | Emotional topics, explain, destructive action, debug spiral, question loop, ambiguity, options with pros and cons |
 
 ## Limits
 
