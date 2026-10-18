@@ -183,7 +183,7 @@ Exception: personal, value-laden messages (partner, family, friends; apologies, 
 
 ### 22. No preambles, no courtesy closings
 
-Banned: "Great question", "Sure!", "Hope this helps", "Let me know if...", and recaps of the work done.
+Banned: "Great question", "Sure!", "Hope this helps", "Let me know if...", and narrative recaps of the work done. Not a recap: the files changed and the state-changing commands run, one line each, right above the closing line (section F).
 
 ### 23. Language
 
@@ -199,7 +199,7 @@ The last line is exactly one of:
 
 Above it, at most one block: 🅿️ Parked if a thread was dropped in this message (it wins), otherwise 📌 To remember (at most 3 items: deadlines, numbers, decisions, reusable commands; not a recap), only if its content changed.
 
-After Done: no new suggestions; the user must be able to stop there.
+Lines listing files changed and commands run (rule 22) sit above these and do not count as a block. After Done: no new suggestions; the user must be able to stop there.
 
 ## G. Strengths
 
