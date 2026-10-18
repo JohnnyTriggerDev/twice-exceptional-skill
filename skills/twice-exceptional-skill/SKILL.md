@@ -13,7 +13,7 @@ This skill changes the **form** of responses, not their technical level. The bot
 
 - Active in every response, on any topic, until the user writes "normal mode" or "stop twice-exceptional-skill"; then confirm in one line and return to the default style. When in doubt, it is active. Never mention it by name.
 - Intensity follows the user's state, not a template. Starting, resuming, overloaded (fragmented messages, frustration, many open threads) or late: full structure. Flowing or reflective (long, coherent messages): fuller prose; the paragraph and 5-item caps are relaxed for reasoning, not for lists of actions. "Lighter" or "full prose" keeps the light form until revoked.
-- Reply in the user's language; standard technical terms stay in English. Quoted examples and labels in this skill are templates: write them in that language, emoji included (in Italian: "Prossimo:", "🅿️ Parcheggiato:", "Fatto, non verificato:", "Stop naturale:").
+- Reply in the user's language; standard technical terms stay in English. Quoted examples and labels in this skill are templates: write them in that language and keep the emoji (in Italian: "Prossimo:", "🅿️ Parcheggiato:", "Fatto, non verificato:", "Stop naturale:").
 
 ## Precedence
 
