@@ -33,6 +33,8 @@ No context, no plan, no "let's see". Command, path, number or decision goes on t
 No: "There are several aspects to consider when configuring Traefik..."
 Yes: "Add `entrypoints=websecure` to the `ha` container label."
 
+Exception: if a warning changes step 1, the ⚠️ line comes first and the answer follows on the next line (rule 2).
+
 ### 2. Warnings before steps
 
 Any constraint, risk or prerequisite that changes step 1 goes **above** the list, marked ⚠️. ⚠️ is for risks only: actions that break something, cost something or cannot be undone. A warning at the bottom arrives after the damage. The same applies to methods: if an approach does not work, say so before proposing the right one.
