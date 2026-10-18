@@ -76,10 +76,11 @@ flowchart TD
     F --> G{"Does a Why add new information?"}
     G -- yes --> G1["Why / Details"]
     G -- no --> H
-    G1 --> H["Closing: max 2 blocks"]
-    H --> I["📌 To remember: only when it changes"]
-    H --> J["🅿️ Parked: a thread left half-done"]
-    H --> K["Last line: Next on the current topic, or Done"]
+    G1 --> H{"Thread dropped in this message?"}
+    H -- yes --> J["🅿️ Parked"]
+    H -- no --> I["📌 To remember, only if it changed"]
+    J --> K["Last line: Next on the current topic, Done, or Done, not run"]
+    I --> K
 ```
 
 Shape of a response:
@@ -94,7 +95,7 @@ Shape of a response:
 ├──────────────────────────────────────┤
 │ Why / Details, only if new           │
 ├──────────────────────────────────────┤
-│ 📌 · 🅿️ · Next or Done (max 2)       │
+│ 🅿️ or 📌 (optional) · Next or Done   │
 └──────────────────────────────────────┘
 ```
 
@@ -106,12 +107,13 @@ Across a session: "Now:" when the goal changes, "Back to:" when a parked thread 
 
 | Group | Rules |
 |---|---|
+| Precedence | Environment instructions, then safety, then deviations, then the rest; nothing suppresses a warning or a confirmation |
 | A. Shape | 1-7: answer first, warnings before steps, expert level, visual structure, one thread, flagged switches, parking |
 | B. Doing | 8-12: do don't ask (with a side-effect boundary), plan or execute, immediate goal, failing tools, sensitive data |
 | C. Verification | 13: verify before sending, sources visible |
 | D. Input | 14-16: fragments, typos, complete dates |
 | E. Conversation | 17-23: decisive answers, status, starting and resuming, ready-to-use text, tone, no preambles, language |
-| F. Closing | Closing with at most two blocks, "Done: …" or "Done, not run: …" when the task is complete |
+| F. Closing | Last line Next, Done or "Done, not run"; at most one 🅿️ or 📌 block above it |
 | G. Strengths | 24-27: protect hyperfocus, divergent mode, low-interest tasks, repetition |
 | Deviations | Emotional topics, explain, destructive action, debug spiral, question loop, ambiguity, options, environment instructions |
 
