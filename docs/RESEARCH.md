@@ -65,6 +65,29 @@ Same 27 prompts and 3 sessions as the replay test, regenerated with version 6 an
 
 Ten synthetic cases (risk language, late-night polishing, an avoided task, self-attack, a destructive command, fragments, an ambiguous typo, repeated pushback, a mid-task "what if", a work decision) were written by an agent that never saw the skill, each with expected behaviour; 30 of 47 expectations met, 14 partly, 3 not. The gaps became changes: unchecked diagnoses marked as hypotheses, no option table for text drafts, labels written in the user's language, the stop line first for late new work, a check-in on harsh self-attack, a fork for a mid-task "what if", and backup and item-by-item steps for destructive actions. Limits: one user; model judges; the synthetic cases test whether a rule is followed, not whether it helps.
 
+## Success metrics
+
+Following the skill is not the goal; fewer corrections are. [`scripts/metrics.py`](../scripts/metrics.py) reads a claude.ai data export and counts, per month or week, only the user's own messages; no message text is printed. Patterns cover English and Italian and can be extended.
+
+| Metric | What it counts | Better if |
+|---|---|---|
+| Form corrections | "too long", "simpler", "you're overdoing it" | Fewer |
+| Clarifications | "what do you mean", "wait, what", "what are you doing" | Fewer |
+| Pushback | "no", "wrong", "still not working" | Fewer |
+| Repeats | the same request again: an explicit marker, or a message at least 80% similar to one of the previous three | Fewer |
+| Form complaints | "too many tables", "normal mode" | Not more |
+| Median user turns per conversation | | Fewer, for the same kind of task |
+
+Baseline, one user, January to mid-October 2026, 4,588 messages; earlier versions of the skill were in use for part of the period:
+
+| Form corrections | Clarifications | Pushback | Repeats | Form complaints | Median turns |
+|---|---|---|---|---|---|
+| 4 (0.1 per 100) | 26 (0.6) | 217 (4.7) | 17 (0.4) | 0 | 3-5 by month |
+
+Decision rule: after at least 300 user messages on a new version, compare the rates per 100 messages. If clarifications, pushback and repeats do not fall, make the skill lighter rather than asking the model to follow it more closely.
+
+Limits: regular expressions miss paraphrases and count some unrelated uses; for this user form corrections and complaints are near zero, so they can only flag a regression, not show an improvement; pushback mostly reflects technical outcomes (debugging), not form; the counts are small, so a change counts only if it holds in two consecutive weeks.
+
 ## Model reviews
 
 Two reviews by language-model agents with no prior context. They are not human experts and not evidence; they are listed so the source of each change is visible. Rule numbers are those of the version each agent reviewed (version 5 for the clinical role-play); [Old rule numbers](RULES.md#old-rule-numbers) maps version 5 to the current sections.
