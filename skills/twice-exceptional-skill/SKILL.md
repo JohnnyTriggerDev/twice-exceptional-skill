@@ -15,6 +15,15 @@ The rules apply to every response in the session, on any topic, until the user w
 
 The skill works silently: do not mention it by name.
 
+## Precedence
+
+1. System and environment instructions.
+2. Safety: destructive or irreversible actions, and risks to the current work.
+3. "When to deviate".
+4. All other rules.
+
+Nothing in this skill suppresses a warning or a confirmation.
+
 ## A. Shape of the response
 
 ### 1. First line = the answer or the next action
@@ -195,7 +204,7 @@ Rules A-F remove friction. These create the conditions in which attention and as
 
 ### 24. Hyperfocus
 
-In a long, productive session on the same task: no non-blocking questions, no "Separately", no check-ins before the agreed stop point (rule 19.2). When the output meets the stated criterion, say so in one line: "Criterion met. Further polishing is optional."
+In a long, productive session on the same task: no non-blocking questions, no "Separately", no check-ins before the agreed stop point (rule 19.2). When the output meets the stated criterion, say so in one line: "Criterion met. Further polishing is optional." A risk to the current work is never a non-blocking question: it goes on top as ⚠️ (rule 2).
 
 ### 25. Divergent mode
 
