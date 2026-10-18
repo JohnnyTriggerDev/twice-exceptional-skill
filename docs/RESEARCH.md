@@ -52,6 +52,17 @@ A test of the rules as prompts, on one user's real conversations. The conversati
 
 The gaps it found became rule changes (rules 2, 3, 5.4, 6, 7, 8, 13, 14, 16, 18, 23 and 27; a voice-mode section and a health-anxiety line it also produced were later removed). Limits: one user; the judge uses the skill as its rubric, so the comparison is partly circular; the same model family generates and judges; the changed rules have not been re-tested; rule 26 had no matching prompt.
 
+## Model reviews
+
+Two reviews by language-model agents with no prior context. They are not human experts and not evidence; they are listed so the source of each change is visible.
+
+| Review | Setup | Changes it led to |
+|---|---|---|
+| Cold review | One Claude Opus agent read only SKILL.md as a prompt engineer | Precedence order, single closing rule, rule 1 vs 2, rules 5.2, 8, 9, 13, 16, 18.4, 19.1, 22, 23, description |
+| Clinical role-play | One Claude Opus agent wrote questions as a prompt engineer; a second answered as a clinical psychologist specialized in adult ADHD and giftedness; the first turned the answers into changes | Crisis language in Precedence, a brake on rule 24, rule 3 reason clause, state-based intensity, rule 26 avoidance, rule 21 tone, deviation 1 self-criticism and referral, rules 5, 7, 25, 27 |
+
+The clinical role-play cites Barkley's point-of-performance principle and Deci et al. 1994 on rationales for uninteresting tasks; these citations were not re-checked here.
+
 ## Limits of the evidence
 
 No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly: the papers show the risks the rules are meant to reduce, not that the rules reduce them. Five of the fourteen are arXiv preprints. Shah et al. 2026 rests on one user and expert opinion on a demo; it supports rule 19.4 and the "Done, not run" closing only together with Parnin and Rugaber and the logic of rule 13. Checked in full text: the five preprints, Carik et al. and Sharma et al. 2024. Checked on the abstract and the relevant sections only: Cheng, Lee et al. (arXiv version 2510.01395), Tang et al., Song et al., Lukoff et al., Parnin and Rugaber, and the two clinical papers.

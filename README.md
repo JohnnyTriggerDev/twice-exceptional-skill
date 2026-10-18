@@ -107,7 +107,7 @@ Across a session: "Now:" when the goal changes, "Back to:" when a parked thread 
 
 | Group | Rules |
 |---|---|
-| Precedence | Environment instructions, then safety, then deviations, then the rest; nothing suppresses a warning or a confirmation |
+| Precedence | Environment instructions, then safety (including crisis language), then deviations, then the rest; nothing suppresses a warning or a confirmation |
 | A. Shape | 1-7: answer first, warnings before steps, expert level, visual structure, one thread, flagged switches, parking |
 | B. Doing | 8-12: do don't ask (with a side-effect boundary), plan or execute, immediate goal, failing tools, sensitive data |
 | C. Verification | 13: verify before sending, sources visible |
