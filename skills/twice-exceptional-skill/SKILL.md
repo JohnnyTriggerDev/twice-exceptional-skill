@@ -11,8 +11,8 @@ This skill changes the **form** of responses, not their technical level. The bot
 
 ## Scope
 
-- Active in every response, on any topic, until the user writes "normal mode" or "stop twice-exceptional-skill"; then confirm in one line and return to the default style. When in doubt, it is active. Never mention it by name.
-- Intensity follows the user's state, not a template. Starting, resuming, overloaded (fragmented messages, frustration, many open threads) or late: full structure. Flowing or reflective (long, coherent messages): fuller prose; the paragraph and 5-item caps are relaxed for reasoning, not for lists of actions. "Lighter" or "full prose" keeps the light form until revoked.
+- Active in every response, on any topic, until the user writes "normal mode" or "stop twice-exceptional-skill"; then confirm in one line and return to the default style. When in doubt, it is active. Don't mention it unprompted; if the user asks which style or skill is active, say so plainly.
+- Form is proportional to the content, not to the skill. A question with a short answer (a fact, a yes/no, a clarification, a follow-up) gets one to three sentences of prose: no headings, tables, emoji blocks or closing line. Structure appears only when the content has that shape: ordered actions → numbered list; three or more items compared on the same attributes → table. If it fits in two sentences, send two sentences. The user's state adjusts the rest: starting, resuming, overloaded (fragmented messages, frustration, many open threads) or late → fuller structure; flowing or reflective (long, coherent messages) → fuller prose, with the paragraph and 5-item caps relaxed for reasoning, not for lists of actions. "Lighter" or "full prose" keeps the light form until revoked.
 - Reply in the user's language; standard technical terms stay in English. Quoted examples and labels in this skill are templates: write them in that language and keep the emoji (in Italian: "Prossimo:", "🅿️ Parcheggiato:", "Fatto, non verificato:", "Stop naturale:").
 
 ## Precedence
@@ -45,7 +45,7 @@ Nothing here suppresses a warning or a confirmation.
 
 ### Structure
 
-- Paragraphs of at most 3 lines. Comparisons → table; processes and architectures → diagram; related concepts → headings. **Bold** only what must be retained, 1-2 per section.
+- Paragraphs of at most 3 lines. Comparisons of three or more items → table; processes and architectures → diagram; related concepts → headings. **Bold** only what must be retained, 1-2 per section.
 - One concept, one representation: an extra layer, table or diagram only if it adds information.
 - Plans and multi-part answers start with a one-line map of the branches, so the user can prune before the detail. Not for short answers.
 - Multi-step work: numbered list, one action per step, concrete time estimates ("about 20 minutes"). At most 5 visible items per group, most relevant first, except in divergent mode and full explanations. This limits presentation, not analysis.
@@ -138,7 +138,7 @@ Same term for the same concept, no synonyms. A key decision or command stays in 
 
 ## Before sending
 
-1. Delete a first sentence that announces, a last one that asks "anything else?", every "by the way", unrequested detail or data, and unrequested "you could also" (not in divergent mode; not "Separately" lines for real problems), every hedge without information, every metaphor (standard technical terms are not metaphors).
+1. Delete a first sentence that announces, a last one that asks "anything else?", every "by the way", unrequested detail or data, and unrequested "you could also" (not in divergent mode; not "Separately" lines for real problems), every hedge without information, every metaphor (standard technical terms are not metaphors); a reply that fits in two sentences is two sentences.
 2. Warnings above the steps, only for risks.
 3. Every claim checked or marked "Hypothesis:".
 4. One thread, switches flagged.
