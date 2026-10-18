@@ -91,7 +91,7 @@ Limits: one run per version and one judge; the version 6 replies predate the ver
 
 ## OpenRouter benchmarks
 
-Version 7 on models other than Claude, through [scripts/bench](../scripts/bench/README.md). Replies by DeepSeek V4.1 Flash; judges from other families, blind, with a rubric that does not mention the skill. Total cost about 2 USD.
+Version 7 on models other than Claude, through [scripts/bench](../scripts/bench/README.md) (any skill, several, or none). Replies by DeepSeek V4.1 Flash; judges from other families, blind, with a rubric that does not mention the skill. Total cost about 2 USD.
 
 **40 synthetic ADHD scenarios** (task initiation, time blindness, working memory, hyperfocus, avoided admin, self-criticism, destructive commands, dictated fragments, risk language), written with expected behaviours by an agent that never saw the skill. Judge: Claude Haiku 5.5, pairwise.
 

@@ -1,60 +1,23 @@
 #!/usr/bin/env python3
-"""i-have-adhd's own eval (14 cases, rubric, weights, 3 trials) with three conditions:
-baseline (no skill), ihad (ayghri/i-have-adhd SKILL.md), 2e (twice-exceptional-skill v7).
+"""The 14-case eval suite of ayghri/i-have-adhd, with its task wrapping, rubric block, blind labels,
+validation and dimension weights, run on OpenRouter with any set of skills.
 
-Protocol copied from ayghri/i-have-adhd evals/: same task wrapping (_condition_prompt), same
-grader rubric block, same blind A/B/C judge prompt, same dimension weights. Only the runner differs:
-OpenRouter, generation on CFG gen_model, judging on CFG judge_model.
+  python3 bench_ihad.py --skill 2e=../../skills/twice-exceptional-skill/SKILL.md
+  python3 bench_ihad.py --skill a=path/a.md --skill b=path/b.md --no-baseline --gen anthropic/claude-haiku-5.5 --judge z-ai/glm-5.3
+  python3 bench_ihad.py --skill 2e=... --judge-only --judge z-ai/glm-5.3
 
-Usage:  py bench_ihad.py        (resumable; logs to console and bench_ihad_log.txt)
+Resumable; results and log in results/. See README.md.
 """
-import json, os, random, statistics, sys, time
+import hashlib, itertools, json, random, statistics, string
 from concurrent.futures import ThreadPoolExecutor
-import bench as B   # reuses call(), logging, key loading and budget from bench.py
+import common as C
 
-B.CFG.update({"budget_usd": 0.50, "workers": 8})
-GEN_MODEL = B.CFG["gen_model"]
-JUDGE_MODEL = B.CFG["judge_model"]
-TRIALS = 3
-# 2e: this repo's skill; ihad: a local copy of ayghri/i-have-adhd skills/i-have-adhd/SKILL.md (not shipped here)
-SKILLS = {"ihad": "skill_ihad.md",
-          "2e": os.path.join("..", "..", "skills", "twice-exceptional-skill", "SKILL.md")}
-CONDS = ["baseline", "ihad", "2e"]
 WEIGHTS = {"correctness": 0.35, "autonomy": 0.25, "actionability": 0.20, "safety": 0.10, "concision": 0.10}
-OUT_R, OUT_J = "ihad_replies.jsonl", "ihad_judgements.jsonl"
-JUDGE_MAX_TOKENS = 2000
-# optional: py bench_ihad.py judge <model-slug>  -> only re-judges the saved replies with another judge
-if len(sys.argv) >= 3 and sys.argv[1] == "judge":
-    JUDGE_MODEL = sys.argv[2]
-    OUT_J = "ihad_judgements_" + JUDGE_MODEL.split("/")[-1] + ".jsonl"
-    JUDGE_MAX_TOKENS = 12000   # reasoning judges need room before the JSON
-# py bench_ihad.py run <gen-model> <judge-model>  -> generate with another model, judge, separate files
-if len(sys.argv) >= 4 and sys.argv[1] == "run":
-    GEN_MODEL, JUDGE_MODEL = sys.argv[2], sys.argv[3]
-    slug = lambda m: m.split("/")[-1]
-    OUT_R = f"ihad_replies_{slug(GEN_MODEL)}.jsonl"
-    OUT_J = f"ihad_judgements_{slug(GEN_MODEL)}__{slug(JUDGE_MODEL)}.jsonl"
-    JUDGE_MAX_TOKENS = 12000
-JUDGED = CONDS
-if len(sys.argv) >= 4 and sys.argv[3] == "pair":   # only i-have-adhd vs twice-exceptional, labels A/B
-    JUDGED = ["ihad", "2e"]
-    OUT_J = OUT_J.replace(".jsonl", "_pair.jsonl")
 
 
-def strip_frontmatter(text):
-    lines = text.splitlines()
-    if not lines or lines[0].strip() != "---":
-        return text
-    for i in range(1, len(lines)):
-        if lines[i].strip() == "---":
-            return "\n".join(lines[i + 1:]).lstrip("\n")
-    return text
-
-
-def condition_prompt(task, cond):
-    if cond == "baseline":
+def condition_prompt(task, instructions):
+    if instructions is None:
         return task
-    instructions = strip_frontmatter(open(B.path(SKILLS[cond]), encoding="utf-8").read())
     return ("Follow the response-style skill below while completing the task. "
             "Do not discuss or quote the skill.\n\n"
             f"<response_style>\n{instructions}\n</response_style>\n\n"
@@ -82,15 +45,8 @@ def judge_prompt(case, by_label, rubric):
     return "\n".join(s)
 
 
-def parse_json(text):
-    t = text.strip()
-    if t.startswith("```"):
-        t = "\n".join(l for l in t.splitlines()[1:] if l.strip() != "```")
-    return json.loads(t[t.find("{"): t.rfind("}") + 1])
-
-
 def validate(v, labels):
-    """Same checks as i-have-adhd's parse_judge_scores: every label, five numeric scores 1-5, boolean blocker."""
+    """Same checks as i-have-adhd's parse_judge_scores."""
     for L in labels:
         if L not in v or not isinstance(v[L], dict):
             raise ValueError(f"no verdict for label {L}")
@@ -102,114 +58,115 @@ def validate(v, labels):
             raise ValueError(f"label {L}: blocker must be boolean")
 
 
-def gen(cases):
-    done = {r["job"] for r in B.load_jsonl(OUT_R) if r.get("ok")}
-    jobs = [(c, cond, t) for t in range(TRIALS) for c in cases for cond in CONDS
-            if f'{c["id"]}|{cond}|{t}' not in done]
-    B.log(f"GENERATION: {len(cases)} cases x {len(CONDS)} conditions x {TRIALS} trials; "
-          f"{len(done)} saved, {len(jobs)} to do; model {GEN_MODEL}")
-    prog = B.Progress("gen", len(jobs))
-
-    def work(j):
-        c, cond, t = j
-        job = f'{c["id"]}|{cond}|{t}'
-        try:
-            text, info = B.call(GEN_MODEL, [{"role": "user", "content": condition_prompt(c["prompt"], cond)}], 12000)
-            B.append_jsonl(OUT_R, {"job": job, "ok": True, "text": text, **info})
-            B.log(B.line(prog.tick(True), job, info) + ("  TRUNCATED" if info["finish"] == "length" else ""))
-        except Exception as e:
-            B.append_jsonl(OUT_R, {"job": job, "ok": False, "error": str(e)[:300]})
-            n, tot, fail, el, eta = prog.tick(False)
-            B.log(f"{n:3}/{tot} {job:28} FAILED: {e}", "ERROR")
-
-    with ThreadPoolExecutor(B.CFG["workers"]) as ex:
-        list(ex.map(work, jobs))
+def weighted(s):
+    return sum(WEIGHTS[d] * float(s[d]) for d in WEIGHTS)
 
 
-def judge(cases):
-    rubric = open(B.path("ihad_rubric_block.md"), encoding="utf-8").read()
-    reps = {r["job"]: r["text"] for r in B.load_jsonl(OUT_R) if r.get("ok")}
-    done = {r["group"] for r in B.load_jsonl(OUT_J) if r.get("ok")}
-    rnd = random.Random(11)
-    groups = []
-    for t in range(TRIALS):
-        for c in cases:
-            g = f'{c["id"]}|{t}'
-            order = JUDGED[:]
-            rnd.shuffle(order)
-            if g not in done and all(f'{c["id"]}|{x}|{t}' in reps for x in JUDGED):
-                groups.append((g, c, t, dict(zip("ABC", order))))
-    B.log(f"JUDGING: {len(groups)} groups to do, {len(done)} saved; judge {JUDGE_MODEL}")
-    prog = B.Progress("judge", len(groups))
+def main():
+    ap = C.common_args(__doc__.splitlines()[0], "deepseek/deepseek-v4.1-flash-1017", "z-ai/glm-5.3", 0.5)
+    ap.add_argument("--trials", type=int, default=3)
+    a = ap.parse_args()
+    conds = C.load_conditions(a.skill, not a.no_baseline)
+    if len(conds) > 26:
+        raise SystemExit("at most 26 conditions")
+    cases = [json.loads(l) for l in open(C.path("ihad_cases.jsonl"), encoding="utf-8") if l.strip()]
+    rubric = open(C.path("ihad_rubric_block.md"), encoding="utf-8").read()
+    tag = "+".join(sorted(conds))
+    f_rep = C.out(f"ihad_replies_{C.slug(a.gen)}.jsonl")
+    f_jud = C.out(f"ihad_judgements_{C.slug(a.gen)}__{C.slug(a.judge)}__{hashlib.sha1(tag.encode()).hexdigest()[:8]}.jsonl")
+    C.start("bench_ihad_log.txt", a.budget)
+    C.log(f"conditions: {', '.join(conds)}; generator {a.gen}; judge {a.judge}; judgements -> {f_jud}")
 
-    def work(item):
-        g, c, t, lab = item
-        by_label = {L: reps[f'{c["id"]}|{cond}|{t}'] for L, cond in lab.items()}
-        last = None
-        for attempt in range(3):
-            try:
-                text, info = B.call(JUDGE_MODEL, [{"role": "user", "content": judge_prompt(c, by_label, rubric)}], JUDGE_MAX_TOKENS)
-                if info["finish"] == "length":
-                    raise ValueError("judge output truncated")
-                v = parse_json(text)
-                validate(v, lab)
-                scores = {cond: v[L] for L, cond in lab.items()}
-                B.append_jsonl(OUT_J, {"group": g, "ok": True, "labels": lab, "scores": scores, **info})
-                B.log(B.line(prog.tick(True), g, info))
-                return
-            except Exception as e:
-                last = e
-                B.log(f"judge output rejected on {g} (attempt {attempt + 1}/3): {e}", "WARN")
-        B.append_jsonl(OUT_J, {"group": g, "ok": False, "error": str(last)[:300]})
-        n, tot, fail, el, eta = prog.tick(False)
-        B.log(f"{n:3}/{tot} {g:28} FAILED", "ERROR")
+    try:
+        if not a.judge_only:
+            done = {r["job"] for r in C.load_jsonl(f_rep) if r.get("ok")}
+            jobs = [(c, k, t) for t in range(a.trials) for c in cases for k in conds if f'{c["id"]}|{k}|{t}' not in done]
+            C.log(f"GENERATION: {len(jobs)} to do, {len(done)} saved -> {f_rep}")
+            prog = C.Progress(len(jobs))
 
-    with ThreadPoolExecutor(B.CFG["workers"]) as ex:
-        list(ex.map(work, groups))
+            def gen(j):
+                c, k, t = j
+                job = f'{c["id"]}|{k}|{t}'
+                try:
+                    text, info = C.call(a.gen, [{"role": "user", "content": condition_prompt(c["prompt"], conds[k])}], a.max_tokens)
+                    C.append_jsonl(f_rep, {"job": job, "ok": True, "text": text, **info})
+                    C.log(C.line(prog.tick(True), f'{c["id"]}|{C.short(k)}|{t}', info, "  TRUNCATED" if info["finish"] == "length" else ""))
+                except Exception as e:
+                    C.append_jsonl(f_rep, {"job": job, "ok": False, "error": str(e)[:300]})
+                    p = prog.tick(False)
+                    C.log(f"{p[0]:3}/{p[1]} {job} FAILED: {e}", "ERROR")
+
+            with ThreadPoolExecutor(a.workers) as ex:
+                list(ex.map(gen, jobs))
+
+        reps = {r["job"]: r["text"] for r in C.load_jsonl(f_rep) if r.get("ok")}
+        done = {r["group"] for r in C.load_jsonl(f_jud) if r.get("ok")}
+        rnd = random.Random(11)
+        groups = []
+        for t in range(a.trials):
+            for c in cases:
+                g = f'{c["id"]}|{t}'
+                order = list(conds)
+                rnd.shuffle(order)
+                if g not in done and all(f'{c["id"]}|{k}|{t}' in reps for k in conds):
+                    groups.append((g, c, t, dict(zip(string.ascii_uppercase, order))))
+        C.log(f"JUDGING: {len(groups)} groups to do, {len(done)} saved")
+        prog = C.Progress(len(groups))
+
+        def jud(item):
+            g, c, t, lab = item
+            by_label = {L: reps[f'{c["id"]}|{k}|{t}'] for L, k in lab.items()}
+            last = None
+            for attempt in range(3):
+                try:
+                    text, info = C.call(a.judge, [{"role": "user", "content": judge_prompt(c, by_label, rubric)}], a.judge_max_tokens)
+                    if info["finish"] == "length":
+                        raise ValueError("judge output truncated")
+                    v = C.parse_json(text)
+                    validate(v, lab)
+                    C.append_jsonl(f_jud, {"group": g, "ok": True, "labels": lab, "scores": {k: v[L] for L, k in lab.items()}, **info})
+                    C.log(C.line(prog.tick(True), g, info))
+                    return
+                except Exception as e:
+                    last = e
+                    C.log(f"judge output rejected on {g} (attempt {attempt + 1}/3): {e}", "WARN")
+            C.append_jsonl(f_jud, {"group": g, "ok": False, "error": str(last)[:300]})
+            p = prog.tick(False)
+            C.log(f"{p[0]:3}/{p[1]} {g} FAILED", "ERROR")
+
+        with ThreadPoolExecutor(a.workers) as ex:
+            list(ex.map(jud, groups))
+        summary(conds, f_jud)
+    except KeyboardInterrupt:
+        C.log("interrupted; re-run the same command to resume", "WARN")
+    C.finish()
 
 
-def summary():
-    allrows = [r for r in B.load_jsonl(OUT_J) if r.get("ok")]
-    rows = [r for r in allrows if all(isinstance(r["scores"].get(c), dict) and all(d in r["scores"][c] for d in WEIGHTS) for c in JUDGED)]
-    if len(rows) < len(allrows):
-        B.log(f"{len(allrows) - len(rows)} saved group(s) incomplete, left out of the summary", "WARN")
-    B.log(f"SUMMARY over {len(rows)} judged groups (weights: {WEIGHTS})")
-    per = {c: {d: [] for d in WEIGHTS} | {"weighted": [], "blockers": 0} for c in JUDGED}
-    case_w = {c: {} for c in JUDGED}
-    for r in rows:
-        cid = r["group"].split("|")[0]
-        for c in JUDGED:
-            s = r["scores"][c]
-            w = sum(WEIGHTS[d] * float(s[d]) for d in WEIGHTS)
-            for d in WEIGHTS:
-                per[c][d].append(float(s[d]))
-            per[c]["weighted"].append(w)
-            per[c]["blockers"] += bool(s.get("blocker"))
-            case_w[c].setdefault(cid, []).append(w)
-    B.log("  condition   " + "  ".join(f"{d[:7]:>7}" for d in WEIGHTS) + "  weighted  blockers")
-    for c in JUDGED:
-        B.log(f"  {c:10}  " + "  ".join(f"{statistics.mean(per[c][d]):7.3f}" for d in WEIGHTS)
-              + f"  {statistics.mean(per[c]['weighted']):8.3f}  {per[c]['blockers']:8}")
-    for x, y in [p for p in (("2e", "ihad"), ("2e", "baseline"), ("ihad", "baseline")) if p[0] in JUDGED and p[1] in JUDGED]:
+def summary(conds, f_jud):
+    rows = [r for r in C.load_jsonl(f_jud) if r.get("ok")
+            and all(isinstance(r["scores"].get(k), dict) and all(d in r["scores"][k] for d in WEIGHTS) for k in conds)]
+    C.log(f"SUMMARY over {len(rows)} groups (weights {WEIGHTS})")
+    C.log("  condition     " + "  ".join(f"{d[:7]:>7}" for d in WEIGHTS) + "  weighted  blockers")
+    case_w = {k: {} for k in conds}
+    for k in conds:
+        sc = [r["scores"][k] for r in rows]
+        if not sc:
+            continue
+        for r in rows:
+            case_w[k].setdefault(r["group"].split("|")[0], []).append(weighted(r["scores"][k]))
+        C.log(f"  {C.short(k):12}  " + "  ".join(f"{statistics.mean(float(s[d]) for s in sc):7.3f}" for d in WEIGHTS)
+              + f"  {statistics.mean(weighted(s) for s in sc):8.3f}  {sum(bool(s['blocker']) for s in sc):8}")
+    for x, y in itertools.permutations(conds, 2):
+        if list(conds).index(x) < list(conds).index(y):
+            continue
         w = l = tie = 0
         for cid in case_w[x]:
-            a, b = statistics.mean(case_w[x][cid]), statistics.mean(case_w[y].get(cid, [0]))
-            if abs(a - b) < 0.05: tie += 1
-            elif a > b: w += 1
+            p, q = statistics.mean(case_w[x][cid]), statistics.mean(case_w[y].get(cid, [0]))
+            if abs(p - q) < 0.05: tie += 1
+            elif p > q: w += 1
             else: l += 1
-        B.log(f"  per case (mean of trials) {x} vs {y}: wins {w}, ties {tie}, losses {l}")
+        C.log(f"  per case (mean of trials) {C.short(x)} vs {C.short(y)}: wins {w}, ties {tie}, losses {l}")
 
 
 if __name__ == "__main__":
-    B.LOG = open(B.path("bench_ihad_log.txt"), "a", encoding="utf-8")
-    B.KEY, src = B.read_key()
-    B.log(f"start i-have-adhd eval (generator {GEN_MODEL} -> {OUT_R}; judge {JUDGE_MODEL} -> {OUT_J}); key from {src} (value not shown); budget ${B.CFG['budget_usd']:.2f}")
-    cases = [json.loads(l) for l in open(B.path("ihad_cases.jsonl"), encoding="utf-8") if l.strip()]
-    try:
-        if not (len(sys.argv) >= 2 and sys.argv[1] == "judge"):
-            gen(cases)
-        judge(cases)
-        summary()
-    except KeyboardInterrupt:
-        B.log("interrupted; re-run to resume", "WARN")
-    B.log(f"end; spent ${B.spent:.3f} of ${B.CFG['budget_usd']:.2f}; total time {B.fmt_s(time.time() - B.T0)}")
+    main()
