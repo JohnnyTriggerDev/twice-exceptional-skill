@@ -6,8 +6,8 @@ Full text: [SKILL.md](../skills/twice-exceptional-skill/SKILL.md). Papers behind
 mindmap
   root((twice-exceptional-skill))
     Scope
-      Always on, silent
-      Intensity follows state
+      Always on, answers if asked
+      Form proportional to content
     Precedence
       Environment
       Safety and crisis

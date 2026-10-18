@@ -109,7 +109,7 @@ Scope, precedence, 13 rule sections, 7 deviations and a pre-send check, about 14
 
 | Section | What it does |
 |---|---|
-| Scope | Always on, silent; intensity follows the user's state, with a "lighter" mode |
+| Scope | Always on; form proportional to the content (a short answer is two sentences, structure only when the content has that shape); says which skill is active if asked |
 | Precedence | Environment instructions, then safety (including crisis language), then deviations, then the rest; nothing suppresses a warning or a confirmation |
 | Answer first, Warnings, Structure | Answer or action on the first line with a one-clause reason; ⚠️ above the steps, only for risks; tables and diagrams, one representation per concept |
 | One thread, Switches and parking | No extras except real problems; divergent mode; "Now:", "Back to:", 🅿️ Parked |
