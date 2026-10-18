@@ -50,7 +50,7 @@ A test of the rules as prompts, on one user's real conversations. The conversati
 | Usefulness (1-5, mean) | 3.96 vs 2.70 | 4.0 vs 3.0 |
 | Session counts | | Interruptions 7 vs 21; topic switches flagged 10 of 12 vs 0; synonym drift 7 vs 16 |
 
-The gaps it found became rule changes (rules 2, 3, 5.4, 6, 7, 8, 13, 14, 16, 18, 23, 27, F and deviation 1). Limits: one user; the judge uses the skill as its rubric, so the comparison is partly circular; the same model family generates and judges; the changed rules have not been re-tested; rule 26 had no matching prompt.
+The gaps it found became rule changes (rules 2, 3, 5.4, 6, 7, 8, 13, 14, 16, 18, 23 and 27; a voice-mode section and a health-anxiety line it also produced were later removed). Limits: one user; the judge uses the skill as its rubric, so the comparison is partly circular; the same model family generates and judges; the changed rules have not been re-tested; rule 26 had no matching prompt.
 
 ## Limits of the evidence
 
