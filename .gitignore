@@ -1,0 +1,4 @@
+.env
+**/.env
+scripts/bench/results/
+__pycache__/
