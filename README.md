@@ -103,29 +103,29 @@ Across a session: "Now:" when the goal changes, "Back to:" when a parked thread 
 
 ## Rules at a glance
 
-27 rules in six groups, plus closing, 8 deviations and a pre-send check. Map and tables: [docs/RULES.md](docs/RULES.md). Full text: [SKILL.md](skills/twice-exceptional-skill/SKILL.md).
+Scope, precedence, 13 rule sections, 7 deviations and a pre-send check, about 140 lines. Map and tables: [docs/RULES.md](docs/RULES.md). Full text: [SKILL.md](skills/twice-exceptional-skill/SKILL.md).
 
-| Group | Rules |
+| Section | What it does |
 |---|---|
+| Scope | Always on, silent; intensity follows the user's state, with a "lighter" mode |
 | Precedence | Environment instructions, then safety (including crisis language), then deviations, then the rest; nothing suppresses a warning or a confirmation |
-| A. Shape | 1-7: answer first, warnings before steps, expert level, visual structure, one thread, flagged switches, parking |
-| B. Doing | 8-12: do don't ask (with a side-effect boundary), plan or execute, immediate goal, failing tools, sensitive data |
-| C. Verification | 13: verify before sending, sources visible |
-| D. Input | 14-16: fragments, typos, complete dates |
-| E. Conversation | 17-23: decisive answers, status, starting and resuming, ready-to-use text, tone, no preambles, language |
-| F. Closing | Last line Next, Done or "Done, not run"; at most one 🅿️ or 📌 block above it |
-| G. Strengths | 24-27: protect hyperfocus, divergent mode, low-interest tasks, repetition |
-| Deviations | Emotional topics, explain, destructive action, debug spiral, question loop, ambiguity, options, environment instructions |
+| Answer first, Warnings, Structure | Answer or action on the first line with a one-clause reason; ⚠️ above the steps, only for risks; tables and diagrams, one representation per concept |
+| One thread, Switches and parking | No extras except real problems; divergent mode; "Now:", "Back to:", 🅿️ Parked |
+| Doing, Verification | Do, don't ask, with a side-effect boundary; check with the tools available or mark "Hypothesis:" |
+| Input, Progress | Fragments, typos, dates; status, resume points, stop points in long sessions, tedious and avoided tasks |
+| Ready-to-use text, Tone, Memory | Texts ready to send; direct, not cold; same terms, 📌 To remember |
+| Closing | Last line Next, Done or "Done, not run"; at most one 🅿️ or 📌 block above it |
+| Deviations | Emotional topics, explain, destructive action, debug spiral, question loop, ambiguity, options |
 
 ## Limits
 
 - Prompt-only: it shapes how the agent writes, and the model can still drift from it. There is no automated compliance check in the repo; one private replay test is summarized in [docs/RESEARCH.md](docs/RESEARCH.md#replay-test).
-- System and environment instructions win over the skill (deviation 8); the form stays.
+- System and environment instructions win over the skill (Precedence 1); the form stays.
 - Not a mental-health tool: on personal and emotional topics the skill steps aside, and it never presents itself as a substitute for a person.
 
 ## Evidence
 
-The cited papers document the risks the rules target: sycophancy, dependence on always-available assistants, generic referrals, and lost context after interruptions. No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly. Five of the fourteen papers are arXiv preprints. A separate table lists the ADHD and giftedness papers behind the traits that rules 24-27 address. A replay test on one user's real conversations (27 prompts, 3 sessions) preferred the skill in 29 of 30 blind comparisons, with one tie; the judge used the skill as its rubric, so read its limits first. Full tables, with each finding, the rule it supports and its limits: [docs/RESEARCH.md](docs/RESEARCH.md).
+The cited papers document the risks the rules target: sycophancy, dependence on always-available assistants, generic referrals, and lost context after interruptions. No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly. Five of the fourteen papers are arXiv preprints. A separate table lists the ADHD and giftedness papers behind the traits that the strengths rules address. A replay test on one user's real conversations (27 prompts, 3 sessions) preferred the skill in 29 of 30 blind comparisons, with one tie; the judge used the skill as its rubric, so read its limits first. Full tables, with each finding, the rule it supports and its limits: [docs/RESEARCH.md](docs/RESEARCH.md).
 
 ## Documentation
 
