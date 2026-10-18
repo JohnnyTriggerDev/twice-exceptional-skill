@@ -67,7 +67,7 @@ Ten synthetic cases (risk language, late-night polishing, an avoided task, self-
 
 ## Model reviews
 
-Two reviews by language-model agents with no prior context. They are not human experts and not evidence; they are listed so the source of each change is visible.
+Two reviews by language-model agents with no prior context. They are not human experts and not evidence; they are listed so the source of each change is visible. Rule numbers are those of the version each agent reviewed (version 5 for the clinical role-play); [Old rule numbers](RULES.md#old-rule-numbers) maps version 5 to the current sections.
 
 | Review | Setup | Changes it led to |
 |---|---|---|
@@ -78,4 +78,4 @@ The clinical role-play cites Barkley's point-of-performance principle and Deci e
 
 ## Limits of the evidence
 
-No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly: the papers show the risks the rules are meant to reduce, not that the rules reduce them. Five of the fourteen are arXiv preprints. Shah et al. 2026 rests on one user and expert opinion on a demo; it supports the resume-point rule and the "Done, not run" closing only together with Parnin and Rugaber and the logic of rule 13. Checked in full text: the five preprints, Carik et al. and Sharma et al. 2024. Checked on the abstract and the relevant sections only: Cheng, Lee et al. (arXiv version 2510.01395), Tang et al., Song et al., Lukoff et al., Parnin and Rugaber, and the two clinical papers.
+No paper tests these rules as prompts, and none tests the question-loop deviation or the "Done" closing directly: the papers show the risks the rules are meant to reduce, not that the rules reduce them. Five of the fourteen are arXiv preprints. Shah et al. 2026 rests on one user and expert opinion on a demo; it supports the resume-point rule and the "Done, not run" closing only together with Parnin and Rugaber and the logic of the Verification section. Checked in full text: the five preprints, Carik et al. and Sharma et al. 2024. Checked on the abstract and the relevant sections only: Cheng, Lee et al. (arXiv version 2510.01395), Tang et al., Song et al., Lukoff et al., Parnin and Rugaber, and the two clinical papers.

@@ -1,0 +1,38 @@
+name: check
+on: [push, pull_request]
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Links, anchors and frontmatter
+        run: python3 scripts/check_docs.py
+      - name: Shell script
+        run: shellcheck scripts/install.sh
+      - name: Mermaid diagrams
+        run: |
+          npm install --no-save --silent mermaid@12.2.0 jsdom@29.1.1
+          node scripts/check_mermaid.mjs .
+  install-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run install.sh twice and check idempotency
+        run: |
+          ./scripts/install.sh
+          ./scripts/install.sh
+          test "$(grep -cxF '@~/.claude/skills/twice-exceptional-skill/SKILL.md' ~/.claude/CLAUDE.md)" = 1
+          python3 -c "import json,os; d=json.load(open(os.path.expanduser('~/.config/opencode/opencode.json'))); assert len(d['instructions'])==1, d"
+  install-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run install.ps1 twice and check idempotency
+        shell: pwsh
+        run: |
+          ./scripts/install.ps1
+          ./scripts/install.ps1
+          $n = (Select-String -Path "$HOME/.claude/CLAUDE.md" -SimpleMatch '@~/.claude/skills/twice-exceptional-skill/SKILL.md').Count
+          if ($n -ne 1) { throw "CLAUDE.md import line count: $n" }
+          $cfg = Get-Content -Raw "$HOME/.config/opencode/opencode.json" | ConvertFrom-Json
+          if (@($cfg.instructions).Count -ne 1) { throw "opencode instructions: $(@($cfg.instructions).Count)" }

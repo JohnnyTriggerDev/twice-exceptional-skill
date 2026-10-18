@@ -10,6 +10,8 @@
 
 Response-style skill for coding agents (Claude Code, opencode): it changes the **form** of the output, not the technical level.
 
+**Twice-exceptional (2e)** describes people with high ability in one or more domains *and* one or more disabilities, such as ADHD, a learning disability or autism ([NAGC position statement](https://assets.noviams.com/novi-file-uploads/nagc/Position_Statements/NAGC_PositionPaper_2E.pdf), after Reis, Baum and Burke 2014). The two can mask each other, so neither is obvious. This skill targets giftedness with ADHD: expert-level understanding, with an attention and executive cost in turning "understood" into "done". Its rules help any reader who wants the answer first.
+
 Derived from [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) by Ayoub Ghriss (MIT); see [Credits and tooling](#credits-and-tooling).
 
 ## What it does
@@ -35,7 +37,7 @@ cd twice-exceptional-skill
 ./scripts/install.sh
 ```
 
-Idempotent; installs for Claude Code and opencode and loads the skill in every session. Manual steps and verification: [docs/INSTALL.md](docs/INSTALL.md).
+Idempotent; installs for Claude Code and opencode and loads the skill in every session. On Windows: `powershell -ExecutionPolicy Bypass -File scripts\install.ps1`. For claude.ai, manual steps and verification: [docs/INSTALL.md](docs/INSTALL.md).
 
 ## Turn it off
 
@@ -119,7 +121,7 @@ Scope, precedence, 13 rule sections, 7 deviations and a pre-send check, about 14
 
 ## Limits
 
-- Prompt-only: it shapes how the agent writes, and the model can still drift from it. There is no automated compliance check in the repo; one private replay test is summarized in [docs/RESEARCH.md](docs/RESEARCH.md#replay-test).
+- Prompt-only: it shapes how the agent writes, and the model can still drift from it. CI checks the docs, the diagrams and both install scripts, not the model's compliance; one private replay test is summarized in [docs/RESEARCH.md](docs/RESEARCH.md#replay-test).
 - System and environment instructions win over the skill (Precedence 1); the form stays.
 - Not a mental-health tool: on personal and emotional topics the skill steps aside, and it never presents itself as a substitute for a person.
 
