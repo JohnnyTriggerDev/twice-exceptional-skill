@@ -5,6 +5,7 @@ Full text: [SKILL.md](../skills/twice-exceptional-skill/SKILL.md). Papers behind
 ```mermaid
 mindmap
   root((twice-exceptional-skill))
+    Precedence
     A Shape
       1 First line = answer
       2 Warnings before steps
@@ -40,6 +41,15 @@ mindmap
       26 Low-interest tasks
       27 Repetition
 ```
+
+## Precedence
+
+1. System and environment instructions
+2. Safety: destructive or irreversible actions, risks to the current work
+3. Deviations
+4. All other rules
+
+Nothing in the skill suppresses a warning or a confirmation; rule 24 (hyperfocus) never hides a risk to the current work.
 
 ## "Do, don't ask" boundary (rule 8)
 
