@@ -121,7 +121,7 @@ Scope, precedence, 13 rule sections, 7 deviations and a pre-send check, about 14
 
 ## Limits
 
-- Prompt-only: it shapes how the agent writes, and the model can still drift from it. CI checks the docs, the diagrams and both install scripts, not the model's compliance; one private replay test is summarized in [docs/RESEARCH.md](docs/RESEARCH.md#replay-test).
+- Prompt-only: it shapes how the agent writes, and the model can still drift from it. CI checks the docs, the diagrams and both install scripts, not the model's compliance; [success metrics](docs/RESEARCH.md#success-metrics) count corrections in real conversations; one private replay test is summarized in [docs/RESEARCH.md](docs/RESEARCH.md#replay-test).
 - System and environment instructions win over the skill (Precedence 1); the form stays.
 - Not a mental-health tool: on personal and emotional topics the skill steps aside, and it never presents itself as a substitute for a person.
 
