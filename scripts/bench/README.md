@@ -1,6 +1,6 @@
 # OpenRouter benchmarks
 
-Blind benchmarks that call models through [OpenRouter](https://openrouter.ai) and judge the replies with a model of another family. Any skill, several skills, or none: each `--skill NAME=PATH` is one condition, and the no-skill baseline is added unless `--no-baseline`. Python 3.9+, standard library only (Linux, macOS or WSL). Results of the runs so far: [docs/RESEARCH.md](../../docs/RESEARCH.md#openrouter-benchmarks).
+Blind benchmarks that call models through [OpenRouter](https://openrouter.ai) and judge the replies with a model of another family. Any skill, several skills, or none: each `--skill NAME=PATH` is one condition, and the no-skill baseline is added unless `--no-baseline`. Python 3.9+, standard library only (Linux, macOS or WSL). Results of the runs so far: [docs/RESEARCH.md](../../docs/RESEARCH.md#benchmarks-on-other-models).
 
 | Script | Cases | Judging |
 |---|---|---|
