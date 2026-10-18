@@ -83,6 +83,7 @@ Most rules mitigate costs; four support the conditions under which ADHD-related 
 | One thread: divergent mode | Associative, divergent thinking | Losing side ideas: they are parked |
 | Progress: tedious tasks | Getting through tedious work; the user's own reason in one clause | Avoidance: an avoided task is named once and started together |
 | Memory in the session | Retention through repetition | Ambiguity from synonyms; decisions lost many screens up |
+| Structure: map of the branches; Tone: pruning | Seeing the whole tree and the shortcut | Over-engineering: the user prunes before the detail, and a prune is followed without defence |
 
 ## Deviations
 
