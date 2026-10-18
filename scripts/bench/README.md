@@ -19,3 +19,5 @@ python3 bench_ihad.py run <generator-model> <judge-model>
 The API key is read at run time from `OPENROUTER_API_KEY`, else from a `.env` next to the scripts, else from opencode's `auth.json`. It is never printed or written. Keep `.env` out of git.
 
 Reasoning models can cost far more than their per-token price suggests: GLM 5.3 used up to 8,800 reasoning tokens per judgement on the 40-case set. Check `bench_log.txt` after the first calls.
+
+`ihad_cases.jsonl` and `ihad_rubric_block.md` are copied from [ayghri/i-have-adhd](https://github.com/ayghri/i-have-adhd) `evals/`, Copyright (c) 2026 Ayoub Ghriss, MIT License (see [LICENSE](../../LICENSE), which carries that notice).
