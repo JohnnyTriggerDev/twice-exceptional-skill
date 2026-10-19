@@ -2,9 +2,9 @@
 
 Back to the [README](../README.md).
 
-Five of eight prompt pairs, picked for readability. Same model (`anthropic/claude-sonnet-5.5` via OpenRouter), one run per prompt, with and without `SKILL.md` as the system prompt. The prompts are invented. This is a demo, not a measurement: results vary run to run, and without the skill a reply is sometimes the more complete one.
+Five of eight prompt pairs, picked for readability. Same model (`anthropic/claude-sonnet-5.5`), one run per prompt, with and without `SKILL.md` as the system prompt. The prompts are invented. This is a demo, not a measurement: results vary run to run, and without the skill a reply is sometimes the more complete one.
 
-Note: the replies were generated with an earlier version of the skill, before the strengths rules, the replay-test fixes and the version 6 compaction. Some would differ today: for example ⚠️ now marks risks only, and a closing block is not repeated when unchanged.
+Note: the replies were generated with an earlier version of the skill, before the strengths rules, the replay-test fixes and the version 7 compaction. Some would differ today: for example ⚠️ now marks risks only, and a closing block is not repeated when unchanged.
 
 ## 1. Warning before the steps
 
