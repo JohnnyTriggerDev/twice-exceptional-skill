@@ -31,7 +31,7 @@ Papers on ADHD and high IQ that describe the traits the rules address. They desc
 |---|---|---|
 | [Faraone et al., "The World Federation of ADHD International Consensus Statement: 208 Evidence-based Conclusions about the Disorder", Neurosci. Biobehav. Rev. 128, 2021](https://doi.org/10.1016/j.neubiorev.2021.01.022) | Statements limited to meta-analyses or registry studies with over 2,000 participants; untreated ADHD is linked to many adverse outcomes | Background for the whole skill |
 | [Antshel et al., "Executive functioning in high-IQ adults with ADHD", Psychol. Med. 40(11), 2010](https://pubmed.ncbi.nlm.nih.gov/20085666/) | High-IQ adults with ADHD (n=64) score below high-IQ controls (n=53) on executive tests, while staying in the average range; executive scores predict real-world functioning | Progress and Structure: support executive steps, not comprehension |
-| [Milioni et al., J. Atten. Disord., doi 10.1177/1087054714554933](https://doi.org/10.1177/1087054714554933) | Adults with ADHD and higher IQ show fewer executive deficits than those with standard IQ, which can hide the diagnosis | Answer first (expert-peer level): keep the level, change the form |
+| [Milioni et al., "High IQ May Mask the Diagnosis of ADHD by Compensating for Deficits in Executive Functions in Treatment-Naïve Adults With ADHD", J. Atten. Disord. 21(6), 2017](https://doi.org/10.1177/1087054714554933) | Adults with ADHD and higher IQ show fewer executive deficits than those with standard IQ, which can hide the diagnosis | Answer first (expert-peer level): keep the level, change the form |
 | [Hupfeld, Abagis, Shah, "Living 'in the zone': hyperfocus in adult ADHD", ADHD Atten. Defic. Hyperact. Disord. 11(2), 2019](https://pubmed.ncbi.nlm.nih.gov/30267329/) | Pilot (251) and preregistered replication (372): more ADHD symptoms, more self-reported hyperfocus; a perseverative/perfectionist dimension appears in interviews | Progress (long sessions, hyperfocus) |
 | [Hoogman et al., "Creativity and ADHD: A review of behavioral studies, the effect of psychostimulants and neural underpinnings", Neurosci. Biobehav. Rev. 119, 2020](https://doi.org/10.1016/j.neubiorev.2020.09.029) | Review of 31 studies: more divergent thinking with high subclinical ADHD scores, not with the clinical diagnosis; no advantage in convergent thinking | One thread (divergent mode): open divergence, then converge |
 
@@ -74,7 +74,7 @@ Limits: one run and one judge; the weakest points are actionability and a few sy
 
 ## Benchmarks on other models
 
-Version 7 on models other than Claude, with [scripts/bench](../scripts/bench/README.md) (any skill, several, or none). Replies by DeepSeek V4.1 Flash; judges from other families, blind, with a rubric that does not mention the skill. Total cost about 2 USD.
+Version 7 on DeepSeek V4.1 Flash, GPT-6 Luna and Claude Opus 4.8, with [scripts/bench](../scripts/bench/README.md) (any skill, several, or none). Judges blind, with a rubric that does not mention the skill. The first two tests: replies by DeepSeek V4.1 Flash, judges from other families, total cost about 2 USD.
 
 **40 synthetic ADHD scenarios** (task initiation, time blindness, working memory, hyperfocus, avoided admin, self-criticism, destructive commands, dictated fragments, risk language), written with expected behaviours by an agent that never saw the skill. Judge: Claude Haiku 5.5, pairwise.
 
@@ -99,6 +99,34 @@ Version 7 on models other than Claude, with [scripts/bench](../scripts/bench/REA
 With the Haiku judge, version 7 wins 8 of the 14 cases against no skill, ties 3 and loses 3; the one blocker is on the agent-owned edit. With GLM, correctness and safety stay within 0.03 of no skill and the gain comes from concision and actionability.
 
 Limits: one generator model; one run of the 40 scenarios; GLM omitted one field in one of 42 groups, left out; synthetic cases test the situations, not real users; the judges are models.
+
+### The 14-case suite on Claude Opus 4.8 and GPT-6 Luna
+
+Same 14 cases and 3 trials, no skill against version 7, judged together under blind labels. Claude Opus 4.8 generates and judges, as in the original suite's published run; GLM 5.3 rejudges the same replies as a judge from another family. GPT-6 Luna is judged by MiMo V2.6 Pro and GLM 5.3.
+
+| Judge | Condition | Correctness | Autonomy | Actionability | Safety | Concision | Weighted | Blockers |
+|---|---|---|---|---|---|---|---|---|
+| Claude Opus 4.8 | No skill | 4.571 | 3.619 | 4.095 | 4.643 | 3.024 | 4.090 | 4 |
+| | Version 7 | 4.881 | 4.333 | 4.810 | 4.786 | 4.881 | 4.720 | 0 |
+| GLM 5.3 | No skill | 4.500 | 3.857 | 4.238 | 4.595 | 3.262 | 4.173 | 4 |
+| | Version 7 | 4.833 | 4.548 | 4.810 | 4.690 | 4.786 | 4.738 | 0 |
+
+| Generator | Judge | Condition | Correctness | Autonomy | Actionability | Safety | Concision | Weighted | Blockers |
+|---|---|---|---|---|---|---|---|---|---|
+| GPT-6 Luna | MiMo V2.6 Pro | No skill | 4.619 | 4.619 | 4.643 | 4.690 | 4.286 | 4.598 | 3 |
+| | | Version 7 | 4.762 | 4.738 | 4.786 | 4.976 | 4.952 | 4.801 | 0 |
+| | GLM 5.3 | No skill | 4.762 | 4.214 | 4.405 | 4.571 | 4.286 | 4.487 | 3 |
+| | | Version 7 | 4.762 | 4.452 | 4.595 | 4.810 | 4.810 | 4.661 | 0 |
+
+Per case, version 7 wins 12, ties 1 and loses 1 with the Opus judge and 9, 4 and 1 with GLM on Opus 4.8; 9, 3 and 2 with MiMo and 7, 3 and 4 with GLM on GPT-6 Luna. The gain on GPT-6 Luna is smaller than on Opus 4.8 because the replies without a skill already score high.
+
+### GPT-6 Luna on the 40 synthetic scenarios
+
+Here version 7 loses to no skill: 30 to 7 with MiMo V2.6 Pro (2 ties), 27 to 13 with Claude Haiku 5.5. Usefulness 4.63 without the skill, 4.48 with it (MiMo); expected behaviours met 69% against 58%. The skill halves the replies (median 834 to 400 characters), reading cost improves (3.97 to 4.69) but actionable (4.69 to 3.90) and safe (4.49 to 4.21) fall. The judges' notes on the lost cases point to the same gaps: the technical part deferred to a later turn, fewer checks and warnings, a missing detail that unblocks the request.
+
+Two prompt variants were tried on the same replies: one sentence saying that "answer first" is an order and not a length, and a second that also narrows the three-sentence rule to purely factual answers. Replies grew by 17% and 6% and the expected behaviours rose to 60% and 64%, but the baseline still won 31 to 7 and 28 to 10. Neither variant is in `SKILL.md`.
+
+Limits: one run per test and 14 or 40 cases; on Opus 4.8 the judge is the generator's model (as in the i-have-adhd results); a GLM judging of the 40 scenarios finished only 17 groups and is left out; the 14 cases were written by the authors of the i-have-adhd suite; synthetic cases test the situations, not real users.
 
 ## Success metrics
 
